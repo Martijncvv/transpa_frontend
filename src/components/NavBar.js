@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginPopupOn } from "../store/appStates/actions";
+import { loginPopupOn, registerPopupOn } from "../store/appStates/actions";
 
 export default function NavBar() {
 	const dispatch = useDispatch();
 
-	const togglePopupOn = () => {
+	const loginPopupToggle = () => {
 		dispatch(loginPopupOn());
+	};
+
+	const registerPopupToggle = () => {
+		dispatch(registerPopupOn());
 	};
 
 	return (
@@ -18,9 +22,9 @@ export default function NavBar() {
 			{" - "}
 			<Link to="/product">Product</Link>
 			{" - "}
-			<button onClick={togglePopupOn}>Login</button>
+			<button onClick={loginPopupToggle}>Login</button>
 			{" - "}
-			<Link to="/">Register</Link>
+			<button onClick={registerPopupToggle}>Register</button>
 		</div>
 	);
 }
