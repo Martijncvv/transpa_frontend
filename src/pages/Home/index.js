@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ProductCard from "../../components/ProductCard";
+
 import { fetchProducts } from "../../store/products/actions";
 import { selectProducts } from "../../store/products/selectors";
 

@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginPopupOn } from "../store/appStates/actions";
 
 export default function NavBar() {
+	const dispatch = useDispatch();
+
+	const togglePopupOn = () => {
+		dispatch(loginPopupOn());
+	};
+
 	return (
 		<div>
 			<Link to="/">Home</Link>
@@ -10,9 +18,9 @@ export default function NavBar() {
 			{" - "}
 			<Link to="/product">Product</Link>
 			{" - "}
-			<Link to="/">Register</Link>
+			<button onClick={togglePopupOn}>Login</button>
 			{" - "}
-			<Link to="/">Login</Link>
+			<Link to="/">Register</Link>
 		</div>
 	);
 }
