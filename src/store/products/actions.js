@@ -22,7 +22,9 @@ export const fetchProducts = () => {
 export const fetchProduct = (id) => {
 	return async (dispatch, getState) => {
 		try {
-			const response = await axios.get(`${apiUrl}/productDetails/${id}`);
+			const response = await axios.get(
+				`${apiUrl}/products/productDetails/${id}`
+			);
 			console.log(`FetchProduct ${id}:`, response);
 			dispatch(fetchProductsSuccess(response.data.product));
 		} catch (e) {
