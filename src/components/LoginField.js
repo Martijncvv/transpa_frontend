@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { login } from "../store/companies/actions";
-import { selectToken } from "../store/companies/selectors";
+import { login } from "../store/users/actions";
+import { selectToken } from "../store/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
@@ -33,9 +33,9 @@ export default function LoginField() {
 
 	return (
 		<Container>
-			<Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-				<h1 className="mt-5 mb-5">Login</h1>
-				<Form.Group controlId="formBasicEmail">
+			<Form>
+				<h1>Login</h1>
+				<Form.Group>
 					<Form.Label>Email address</Form.Label>
 					<Form.Control
 						value={email}
@@ -46,7 +46,7 @@ export default function LoginField() {
 					/>
 				</Form.Group>
 
-				<Form.Group controlId="formBasicPassword">
+				<Form.Group>
 					<Form.Label>Password</Form.Label>
 					<Form.Control
 						value={password}
@@ -56,14 +56,11 @@ export default function LoginField() {
 						required
 					/>
 				</Form.Group>
-				<Form.Group className="mt-5">
+				<Form.Group>
 					<Button variant="primary" type="submit" onClick={submitForm}>
 						Log in
 					</Button>
 				</Form.Group>
-				<Link to="/signup" style={{ textAlign: "center" }}>
-					Click here to sign up
-				</Link>
 			</Form>
 		</Container>
 	);

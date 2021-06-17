@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-// import { signUp } from "../../store/user/actions";
-// import { selectToken } from "../../store/user/selectors";
+import { register } from "../store/users/actions";
+import { selectToken } from "../store/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
 export default function Register() {
-	const [company, setCompany] = useState("");
+	const [companyName, setCompanyName] = useState("");
 	const [name, setName] = useState("");
 	const [surname, setSurname] = useState("");
 
@@ -19,32 +19,45 @@ export default function Register() {
 	const [password, setPassword] = useState("");
 	const [repeatPassword, setRepeatPassword] = useState("");
 
-	const [companyImageURL, setCompanyImageURL] = useState("");
+	const [companyImageUrl, setCompanyImageUrl] = useState("");
 	const [detailedCompanyInfo, setDetailedCompanyInfo] = useState("");
 
 	const dispatch = useDispatch();
-	// const token = useSelector(selectToken);
-	// const history = useHistory();
+	const token = useSelector(selectToken);
+	const history = useHistory();
 
-	// useEffect(() => {
-	// 	if (token !== null) {
-	// 		history.push("/");
-	// 	}
-	// }, [token, history]);
+	useEffect(() => {
+		if (token !== null) {
+			history.push("/");
+		}
+	}, [token, history]);
 
 	function submitForm(event) {
 		event.preventDefault();
+		if (password === repeatPassword && email === repeatEmail) {
+			dispatch(
+				register(
+					companyName,
+					name,
+					surname,
+					email,
+					password,
+					companyImageUrl,
+					detailedCompanyInfo
+				)
+			);
+		} else {
+			console.log("Password or email not the same");
+		}
 
-		// dispatch(signUp(name, email, password));
-
-		setCompany("");
+		setCompanyName("");
 		setName("");
 		setSurname("");
 		setEmail("");
 		setRepeatEmail("");
 		setPassword("");
 		setRepeatPassword("");
-		setCompanyImageURL("");
+		setCompanyImageUrl("");
 		setDetailedCompanyInfo("");
 	}
 
@@ -56,8 +69,8 @@ export default function Register() {
 				<Form.Group>
 					<Form.Label>Company </Form.Label>
 					<Form.Control
-						value={company}
-						onChange={(event) => setCompany(event.target.value)}
+						value={companyName}
+						onChange={(event) => setCompanyName(event.target.value)}
 						type="text"
 						placeholder="Enter company name"
 						required
@@ -129,6 +142,17 @@ export default function Register() {
 						onChange={(event) => setRepeatPassword(event.target.value)}
 						type="password"
 						placeholder="Password"
+						required
+					/>
+				</Form.Group>
+
+				<Form.Group>
+					<Form.Label>Company image Url </Form.Label>
+					<Form.Control
+						value={companyImageUrl}
+						onChange={(event) => setCompanyImageUrl(event.target.value)}
+						type="text"
+						placeholder="Enter company image URL"
 						required
 					/>
 				</Form.Group>

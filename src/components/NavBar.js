@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginPopupOn, registerPopupOn } from "../store/appStates/actions";
+import { logOut } from "../store/users/actions";
 
 export default function NavBar() {
 	const dispatch = useDispatch();
@@ -12,6 +13,10 @@ export default function NavBar() {
 
 	const registerPopupToggle = () => {
 		dispatch(registerPopupOn());
+	};
+
+	const logoutUser = () => {
+		dispatch(logOut());
 	};
 
 	return (
@@ -25,6 +30,8 @@ export default function NavBar() {
 			<button onClick={loginPopupToggle}>Login</button>
 			{" - "}
 			<button onClick={registerPopupToggle}>Register</button>
+			{" - "}
+			<button onClick={logoutUser}>Logout</button>
 		</div>
 	);
 }

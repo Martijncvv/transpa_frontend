@@ -8,28 +8,39 @@ export const LOG_OUT = "LOG_OUT";
 
 const loginSuccess = (userWithToken) => {
 	return {
-		type: LOGIN_SUCCESS,
+		type: "LOGIN_SUCCESS",
 		payload: userWithToken,
 	};
 };
 
 const tokenStillValid = (userWithoutToken) => ({
-	type: TOKEN_STILL_VALID,
+	type: "TOKEN_STILL_VALID",
 	payload: userWithoutToken,
 });
 
-export const logOut = () => ({ type: LOG_OUT });
+export const logOut = () => ({ type: "LOG_OUT" });
 
-export const signUp = (name, email, password, isArtist) => {
+export const register = (
+	companyName,
+	name,
+	surname,
+	email,
+	password,
+	companyImageUrl,
+	detailedCompanyInfo
+) => {
 	return async (dispatch, getState) => {
 		try {
-			const response = await axios.post(`${apiUrl}/signup`, {
+			const response = await axios.post(`${apiUrl}/register`, {
+				companyName,
 				name,
+				surname,
 				email,
 				password,
-				isArtist,
+				companyImageUrl,
+				detailedCompanyInfo,
 			});
-
+			console.log("register response", response);
 			dispatch(loginSuccess(response.data));
 		} catch (error) {
 			if (error.response) {
@@ -48,7 +59,7 @@ export const login = (email, password) => {
 				email,
 				password,
 			});
-
+			console.log("login response", response);
 			dispatch(loginSuccess(response.data));
 		} catch (error) {
 			if (error.response) {
