@@ -5,8 +5,7 @@ import Button from "react-bootstrap/Button";
 import { login } from "../store/users/actions";
 import { selectToken } from "../store/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 export default function LoginField() {
 	const [email, setEmail] = useState("");

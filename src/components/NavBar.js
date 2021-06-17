@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginPopupOn, registerPopupOn } from "../store/appStates/actions";
 import { logOut } from "../store/users/actions";
 
+import { selectUser } from "../store/users/selectors";
+
 export default function NavBar() {
 	const dispatch = useDispatch();
+
+	const user = useSelector(selectUser);
 
 	const loginPopupToggle = () => {
 		dispatch(loginPopupOn());
@@ -32,6 +36,8 @@ export default function NavBar() {
 			<button onClick={registerPopupToggle}>Register</button>
 			{" - "}
 			<button onClick={logoutUser}>Logout</button>
+			{" - "}
+			{user.name && <p>Welcome {user.name}</p>}
 		</div>
 	);
 }
