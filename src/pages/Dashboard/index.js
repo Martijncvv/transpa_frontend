@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCompanyProducts } from "../../store/products/actions";
-import { selectProducts } from "../../store/products/selectors";
+import { selectProductsData } from "../../store/products/selectors";
 import ProductCard from "../../components/ProductCard";
 
 export default function Dashboard() {
 	const dispatch = useDispatch();
 
-	const products = useSelector(selectProducts);
+	const productData = useSelector(selectProductsData);
+	const products = productData.products;
 
 	console.log("Company products", products);
 	useEffect(() => {
@@ -20,6 +21,7 @@ export default function Dashboard() {
 			{products.map((product) => (
 				<div key={product.id}>
 					<ProductCard
+						imageHeight="200px"
 						id={product.id}
 						title={product.title}
 						imageURL={product.mainProductImageURL}

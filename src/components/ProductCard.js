@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 export default function ProductCard(props) {
 	return (
 		<div>
-			<img src={props.imageURL} alt={props.title} style={{ height: "400px" }} />
+			<img
+				src={props.imageURL}
+				alt={props.title}
+				style={{ height: props.imageHeight || "400px" }}
+			/>
 			<h1>{props.title}</h1>
 
 			<Link to={`/productDetails/${props.id}`}>
