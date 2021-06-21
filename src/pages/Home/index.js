@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ProductCard from "../../components/ProductCard";
 
 import { fetchProducts } from "../../store/products/actions";
-import { selectProducts } from "../../store/products/selectors";
+import { selectProductsData } from "../../store/products/selectors";
 
 export default function Home() {
 	const dispatch = useDispatch();
-	const products = useSelector(selectProducts);
+	const productData = useSelector(selectProductsData);
+	const products = productData.products;
 
 	useEffect(() => {
 		dispatch(fetchProducts());
@@ -36,6 +37,7 @@ export default function Home() {
 				{products.map((product) => (
 					<div key={product.id}>
 						<ProductCard
+							imageHeight="200px"
 							id={product.id}
 							title={product.title}
 							imageURL={product.mainProductImageURL}
