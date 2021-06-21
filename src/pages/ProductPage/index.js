@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 
-import { fetchProductDetails } from "../../store/products/actions";
+import { fetchProductDetails, addVote } from "../../store/products/actions";
 import { selectProductsData } from "../../store/products/selectors";
 
 import ProductCard from "../../components/ProductCard";
@@ -35,6 +35,11 @@ export default function ProductPage() {
 		// dispatch(fetchRelevantProducts(id));
 	}, [dispatch, useParams()]);
 
+	function onVote(answerId) {
+		dispatch(addVote(answerId));
+		console.log(" answerId: ", answerId);
+	}
+
 	return (
 		<div>
 			{!productData.isFetching && productDetails.company && (
@@ -56,25 +61,24 @@ export default function ProductPage() {
 					<h3>Product feedback</h3>
 
 					{questionsData.map((questionData) => (
-						<div>
+						<div key={questionData.id}>
 							<p>{questionData.question}</p>
 							<form>
 								{questionData.answers.map((answer) => (
-									<>
+									<div key={answer.id}>
 										<p>{answer.answer}</p>
 										<input
 											type="radio"
+											name={questionData.id}
 											id={answer.id}
 											value={answer.id}
+											onChange={(event) => onVote(answer.id)}
 										></input>
-									</>
+									</div>
 								))}
 							</form>
 						</div>
 					))}
-
-					{/* <input type="radio" id={answer.id} value={answer.id} > */}
-					{/* <label for={answer.id}>{answer.answer}</label> */}
 
 					<h3>Sales locations</h3>
 					{locations.map((location) => (

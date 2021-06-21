@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import ProductPage from "./pages/ProductPage";
+import AddProduct from "./pages/AddProduct";
 
 import NavBar from "./components/NavBar";
 import PopupField from "./components/PopupField";
@@ -31,6 +32,7 @@ function App() {
 				<Route exact path="/" component={Home} />
 				<Route path="/dashboard" component={Dashboard} />
 				<Route path="/productDetails/:id" component={ProductPage} />
+				<Route path="/addProduct" component={AddProduct} />
 			</Switch>
 		</div>
 	);

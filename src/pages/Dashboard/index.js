@@ -8,7 +8,7 @@ export default function Dashboard() {
 	const dispatch = useDispatch();
 
 	const productData = useSelector(selectProductsData);
-	const products = productData.products;
+	const products = productData;
 
 	console.log("Company products", products);
 	useEffect(() => {

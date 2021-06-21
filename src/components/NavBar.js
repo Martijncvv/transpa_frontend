@@ -29,13 +29,13 @@ export default function NavBar() {
 			{" - "}
 			<Link to="/dashBoard">Dashboard</Link>
 			{" - "}
-			<Link to="/product">Product</Link>
-			{" - "}
 			<button onClick={loginPopupToggle}>Login</button>
 			{" - "}
 			<button onClick={registerPopupToggle}>Register</button>
 			{" - "}
 			<button onClick={logoutUser}>Logout</button>
+			{" - "}
+			<Link to="/addProduct">Add Product</Link>
 			{" - "}
 			{user.name && <p>Welcome {user.name}</p>}
 		</div>
