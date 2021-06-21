@@ -109,3 +109,86 @@ export const addLocation = (zipcode, streetNumber) => {
 		}
 	};
 };
+
+export const addProducts = (
+	productName,
+	mainProductImageURL,
+	colour,
+	detailedProductInfo,
+	videoURL,
+	socialMediaURL,
+
+	location,
+
+	productImage_1,
+	productImage_2,
+	productImage_3,
+
+	question_1,
+	question_2,
+	question_3,
+
+	answer_1a,
+	answer_1b,
+	answer_1c,
+	answer_1d,
+	answer_2a,
+	answer_2b,
+	answer_2c,
+	answer_2d,
+	answer_3a,
+	answer_3b,
+	answer_3c,
+	answer_3d
+) => {
+	return async (dispatch, getState) => {
+		const { token } = selectUser(getState());
+		try {
+			console.log("answer_1a", answer_1a);
+			dispatch(fetchingData());
+			const response = await axios.post(
+				`${apiUrl}/products/addProduct/`,
+				{
+					productName,
+					mainProductImageURL,
+					colour,
+					detailedProductInfo,
+					videoURL,
+					socialMediaURL,
+
+					location,
+
+					productImage_1,
+					productImage_2,
+					productImage_3,
+
+					question_1,
+					question_2,
+					question_3,
+
+					answer_1a,
+					answer_1b,
+					answer_1c,
+					answer_1d,
+					answer_2a,
+					answer_2b,
+					answer_2c,
+					answer_2d,
+					answer_3a,
+					answer_3b,
+					answer_3c,
+					answer_3d,
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+			console.log("RESPONSE", response);
+			// dispatch(AddLocationSuccess(response.data.product));
+		} catch (e) {
+			console.log(e);
+		}
+	};
+};

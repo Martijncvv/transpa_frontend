@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchCompanyProducts } from "../../store/products/actions";
+import {
+	fetchCompanyProducts,
+	deleteProduct,
+} from "../../store/products/actions";
 import { selectProductsData } from "../../store/products/selectors";
 import ProductCard from "../../components/ProductCard";
 

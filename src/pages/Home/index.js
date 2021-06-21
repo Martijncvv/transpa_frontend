@@ -9,7 +9,7 @@ import { selectProductsData } from "../../store/products/selectors";
 export default function Home() {
 	const dispatch = useDispatch();
 	const productData = useSelector(selectProductsData);
-	const products = productData.products;
+	const products = productData;
 
 	useEffect(() => {
 		dispatch(fetchProducts());
