@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addLocation } from "../store/products/actions";
+import { popupOff } from "../store/appStates/actions";
 
 export default function AddLocationField() {
 	const [zipcode, setZipcode] = useState("");
@@ -13,6 +14,8 @@ export default function AddLocationField() {
 	function submitForm(event) {
 		event.preventDefault();
 		dispatch(addLocation(zipcode, streetNumber));
+		dispatch(popupOff());
+
 		setStreetNumber(" ");
 		setZipcode(" ");
 	}

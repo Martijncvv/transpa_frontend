@@ -26,7 +26,7 @@ export default function AddProduct() {
 	const [videoURL, setVideoURL] = useState("");
 	const [socialMediaURL, setSocialMediaURL] = useState("");
 	const [location, setLocation] = useState("");
-	// const [relevantProducts, setRelevantProducts] = useState("");
+	let relevantProductIds = [];
 
 	const [productImage_1, setProductImage_1] = useState("");
 	const [productImage_2, setProductImage_2] = useState("");
@@ -74,6 +74,8 @@ export default function AddProduct() {
 
 				location,
 
+				relevantProductIds,
+
 				productImage_1,
 				productImage_2,
 				productImage_3,
@@ -98,8 +100,16 @@ export default function AddProduct() {
 		);
 	}
 
-	const test = () => {
-		console.log("TEST");
+	const addRelevantProduct = (productId) => {
+		if (relevantProductIds.includes(productId)) {
+			relevantProductIds = relevantProductIds.filter(
+				(item) => item !== productId
+			);
+		} else {
+			relevantProductIds.push(productId);
+		}
+
+		console.log("TEST relevantProducts", relevantProductIds);
 	};
 
 	const addLocationPopupToggle = () => {
@@ -199,20 +209,21 @@ export default function AddProduct() {
 					</button>
 				</div>
 
-				{/* <div>
+				<div>
 					<h2>Relevant products</h2>
 					{companyProducts.map((product) => (
 						<div key={product.id}>
 							<p>{product.productName}</p>
 							<input
 								type="checkbox"
-								name={product.productName}
+								name="relevantProduct"
 								id={product.id}
 								value={product.productName}
+								onClick={() => addRelevantProduct(product.id)}
 							></input>
 						</div>
 					))}
-				</div> */}
+				</div>
 
 				<h2>Questions</h2>
 				<div>

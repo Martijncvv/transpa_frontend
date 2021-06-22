@@ -1,7 +1,7 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
 import { selectUser } from "../users/selectors";
-import { fetchingDone, fetchingLoading } from "../../store/appStates/actions";
+import { fetchingDone } from "../../store/appStates/actions";
 
 export const fetchingData = () => ({ type: "FETCHING_DATA" });
 
@@ -62,7 +62,7 @@ export const fetchCompanyProducts = () => {
 		const { token } = selectUser(getState());
 		try {
 			dispatch(fetchingData());
-			const response = await axios.get(`${apiUrl}/products/company`, {
+			const response = await axios.get(`${apiUrl}/products/companyProducts`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -125,6 +125,8 @@ export const addProducts = (
 
 	location,
 
+	relevantProductIds,
+
 	productImage_1,
 	productImage_2,
 	productImage_3,
@@ -149,7 +151,7 @@ export const addProducts = (
 	return async (dispatch, getState) => {
 		const { token } = selectUser(getState());
 		try {
-			console.log("answer_1a", answer_1a);
+			console.log("relevantProductIds", relevantProductIds);
 			dispatch(fetchingData());
 			const response = await axios.post(
 				`${apiUrl}/products/addProduct/`,
@@ -162,6 +164,8 @@ export const addProducts = (
 					socialMediaURL,
 
 					location,
+
+					relevantProductIds,
 
 					productImage_1,
 					productImage_2,

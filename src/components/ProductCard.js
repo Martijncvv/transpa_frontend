@@ -1,11 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteProduct } from "../store/products/actions";
 
 export default function ProductCard(props) {
-	const dispatch = useDispatch();
-
 	return (
 		<div>
 			<img
