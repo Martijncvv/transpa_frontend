@@ -18,6 +18,10 @@ export default function Dashboard() {
 		dispatch(fetchCompanyProducts());
 	}, [dispatch]);
 
+	function deleteProductButton(id) {
+		dispatch(deleteProduct(id));
+	}
+
 	return (
 		<div>
 			<h1>Dashboard</h1>
@@ -29,6 +33,9 @@ export default function Dashboard() {
 						title={product.title}
 						imageURL={product.mainProductImageURL}
 					/>
+					<button onClick={() => deleteProductButton(product.id)}>
+						Delete
+					</button>
 				</div>
 			))}
 		</div>

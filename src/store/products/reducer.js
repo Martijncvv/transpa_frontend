@@ -13,6 +13,16 @@ export default (state = initialState, action) => {
 		case "FETCH_PRODUCTS_SUCCESS":
 			return { ...state, products: action.payload, isFetching: false };
 
+		case "DELETE_PRODUCTS_SUCCESS":
+			const filteredProducts = state.products.filter(
+				(product) => product.id !== action.payload
+			);
+			return {
+				...state,
+				products: filteredProducts,
+				isFetching: false,
+			};
+
 		case "FETCH_PRODUCTDETAILS_SUCCESS":
 			return { ...state, productDetails: action.payload, isFetching: false };
 
