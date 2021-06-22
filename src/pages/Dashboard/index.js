@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchCompanyProducts } from "../../store/products/actions";
+import {
+	fetchCompanyProducts,
+	deleteProduct,
+} from "../../store/products/actions";
 import { selectProductsData } from "../../store/products/selectors";
 import ProductCard from "../../components/ProductCard";
 
@@ -15,6 +18,10 @@ export default function Dashboard() {
 		dispatch(fetchCompanyProducts());
 	}, [dispatch]);
 
+	function deleteProductButton(id) {
+		dispatch(deleteProduct(id));
+	}
+
 	return (
 		<div>
 			<h1>Dashboard</h1>
@@ -26,6 +33,9 @@ export default function Dashboard() {
 						title={product.title}
 						imageURL={product.mainProductImageURL}
 					/>
+					<button onClick={() => deleteProductButton(product.id)}>
+						Delete
+					</button>
 				</div>
 			))}
 		</div>

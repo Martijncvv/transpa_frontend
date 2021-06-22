@@ -9,6 +9,11 @@ export const fetchProductsSuccess = (products) => ({
 	type: "FETCH_PRODUCTS_SUCCESS",
 	payload: products,
 });
+export const deleteProductsSuccess = (productId) => ({
+	type: "DELETE_PRODUCTS_SUCCESS",
+	payload: productId,
+});
+
 export const fetchProductDetailssSuccess = (productDetails) => ({
 	type: "FETCH_PRODUCTDETAILS_SUCCESS",
 	payload: productDetails,
@@ -104,6 +109,104 @@ export const addLocation = (zipcode, streetNumber) => {
 				streetNumber,
 			});
 			dispatch(AddLocationSuccess(response.data.location));
+		} catch (e) {
+			console.log(e);
+		}
+	};
+};
+
+export const addProducts = (
+	productName,
+	mainProductImageURL,
+	colour,
+	detailedProductInfo,
+	videoURL,
+	socialMediaURL,
+
+	location,
+
+	productImage_1,
+	productImage_2,
+	productImage_3,
+
+	question_1,
+	question_2,
+	question_3,
+
+	answer_1a,
+	answer_1b,
+	answer_1c,
+	answer_1d,
+	answer_2a,
+	answer_2b,
+	answer_2c,
+	answer_2d,
+	answer_3a,
+	answer_3b,
+	answer_3c,
+	answer_3d
+) => {
+	return async (dispatch, getState) => {
+		const { token } = selectUser(getState());
+		try {
+			console.log("answer_1a", answer_1a);
+			dispatch(fetchingData());
+			const response = await axios.post(
+				`${apiUrl}/products/addProduct/`,
+				{
+					productName,
+					mainProductImageURL,
+					colour,
+					detailedProductInfo,
+					videoURL,
+					socialMediaURL,
+
+					location,
+
+					productImage_1,
+					productImage_2,
+					productImage_3,
+
+					question_1,
+					question_2,
+					question_3,
+
+					answer_1a,
+					answer_1b,
+					answer_1c,
+					answer_1d,
+					answer_2a,
+					answer_2b,
+					answer_2c,
+					answer_2d,
+					answer_3a,
+					answer_3b,
+					answer_3c,
+					answer_3d,
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+			console.log("RESPONSE", response);
+			// dispatch(AddLocationSuccess(response.data.product));
+		} catch (e) {
+			console.log(e);
+		}
+	};
+};
+
+export const deleteProduct = (productId) => {
+	return async (dispatch, getState) => {
+		console.log(productId);
+		try {
+			const response = await axios.delete(
+				`${apiUrl}/products/delete/${productId}`
+			);
+			console.log("response delete product:", response.data);
+			dispatch(deleteProductsSuccess(productId));
 		} catch (e) {
 			console.log(e);
 		}

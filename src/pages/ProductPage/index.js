@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 
 import { fetchProductDetails, addVote } from "../../store/products/actions";
-import { selectProductsData } from "../../store/products/selectors";
+import { selectProductsDetails } from "../../store/products/selectors";
 
 import ProductCard from "../../components/ProductCard";
 
@@ -16,18 +16,16 @@ export default function ProductPage() {
 	const dispatch = useDispatch();
 
 	const { id } = useParams();
-	const productData = useSelector(selectProductsData);
-	const productDetails = productData.productDetails;
-
-	const relevantProducts = productData.productDetails.relevantProduct;
-	const questionsData = productData.productDetails.questions;
-	const locations = productData.productDetails.locations;
+	const productDetails = useSelector(selectProductsDetails);
+	console.log("PRODUCT DATA", productDetails);
+	// const relevantProducts = productData.productDetails.relevantProduct;
+	const questionsData = productDetails.questions;
+	const locations = productDetails.locations;
 	// const fetchingState = useSelector(selectFetchingState);
 	// const relevantProducts = useSelector(selectRelevantProducts);
 
-	console.log("productData", productData);
 	// console.log("relevantProducts", relevantProducts);
-	console.log("questions", questionsData);
+	// console.log("questions", questionsData);
 	// console.log("locations", locations);
 
 	useEffect(() => {
@@ -42,7 +40,7 @@ export default function ProductPage() {
 
 	return (
 		<div>
-			{!productData.isFetching && productDetails.company && (
+			{productDetails.company && (
 				<div>
 					<img
 						src={productDetails.mainProductImageURL}
@@ -91,7 +89,7 @@ export default function ProductPage() {
 					<h3>Social media</h3>
 					<p>{productDetails.socialMediaURL}</p>
 					<h3>Relevant products</h3>
-					{relevantProducts.map((product) => (
+					{/* {relevantProducts.map((product) => (
 						<div key={product.id}>
 							<ProductCard
 								imageHeight="200px"
@@ -100,7 +98,7 @@ export default function ProductPage() {
 								imageURL={product.mainProductImageURL}
 							/>
 						</div>
-					))}
+					))} */}
 				</div>
 			)}
 		</div>
