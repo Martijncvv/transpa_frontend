@@ -65,37 +65,37 @@ export default function Register() {
 			<h1>Register</h1>
 			<form id="form">
 				<div>
-					<div class="form-item">
-						<label class="form-label">Company</label>
+					<div className="form-item">
+						<label className="form-label">Company</label>
 					</div>
-					<div class="form-item">
-						<label class="form-label">Name</label>
+					<div className="form-item">
+						<label className="form-label">Name</label>
 					</div>
-					<div class="form-item">
-						<label class="form-label">Surname</label>
+					<div className="form-item">
+						<label className="form-label">Surname</label>
 					</div>
-					<div class="form-item">
-						<label class="form-label">Email</label>
+					<div className="form-item">
+						<label className="form-label">Email</label>
 					</div>
-					<div class="form-item">
-						<label class="form-label">Repeat email</label>
+					<div className="form-item">
+						<label className="form-label">Repeat email</label>
 					</div>
-					<div class="form-item">
-						<label class="form-label">Password</label>
+					<div className="form-item">
+						<label className="form-label">Password</label>
 					</div>
-					<div class="form-item">
-						<label class="form-label">Repeat password</label>
+					<div className="form-item">
+						<label className="form-label">Repeat password</label>
 					</div>
-					<div class="form-item">
-						<label class="form-label">Company image URL</label>
+					<div className="form-item">
+						<label className="form-label">Company image URL</label>
 					</div>
-					<div class="form-item">
-						<label class="form-label">Detailed company info</label>
+					<div className="form-item">
+						<label className="form-label">Detailed company info</label>
 					</div>
 				</div>
 
 				<div>
-					<div class="form-item">
+					<div className="form-item">
 						<input
 							value={companyName}
 							onChange={(event) => setCompanyName(event.target.value)}
@@ -104,7 +104,7 @@ export default function Register() {
 							required
 						/>
 					</div>
-					<div class="form-item">
+					<div className="form-item">
 						<input
 							value={name}
 							onChange={(event) => setName(event.target.value)}
@@ -113,7 +113,7 @@ export default function Register() {
 							required
 						/>
 					</div>
-					<div class="form-item">
+					<div className="form-item">
 						<input
 							value={surname}
 							onChange={(event) => setSurname(event.target.value)}
@@ -122,7 +122,7 @@ export default function Register() {
 							required
 						/>
 					</div>
-					<div class="form-item">
+					<div className="form-item">
 						<input
 							value={email}
 							onChange={(event) => setEmail(event.target.value)}
@@ -131,7 +131,7 @@ export default function Register() {
 							required
 						/>
 					</div>
-					<div class="form-item">
+					<div className="form-item">
 						<input
 							value={repeatEmail}
 							onChange={(event) => setRepeatEmail(event.target.value)}
@@ -140,7 +140,7 @@ export default function Register() {
 							required
 						/>
 					</div>
-					<div class="form-item">
+					<div className="form-item">
 						<input
 							value={password}
 							onChange={(event) => setPassword(event.target.value)}
@@ -149,7 +149,7 @@ export default function Register() {
 							required
 						/>
 					</div>
-					<div class="form-item">
+					<div className="form-item">
 						<input
 							value={repeatPassword}
 							onChange={(event) => setRepeatPassword(event.target.value)}
@@ -158,7 +158,7 @@ export default function Register() {
 							required
 						/>
 					</div>
-					<div class="form-item">
+					<div className="form-item">
 						<input
 							value={companyImageUrl}
 							onChange={(event) => setCompanyImageUrl(event.target.value)}
@@ -167,7 +167,7 @@ export default function Register() {
 							required
 						/>
 					</div>
-					<div class="form-item">
+					<div className="form-item">
 						<textarea
 							value={detailedCompanyInfo}
 							onChange={(event) => setDetailedCompanyInfo(event.target.value)}

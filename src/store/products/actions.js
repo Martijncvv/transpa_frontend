@@ -33,7 +33,6 @@ export const fetchProducts = () => {
 		try {
 			dispatch(fetchingData());
 			const response = await axios.get(`${apiUrl}/products`);
-			console.log("FetchProducts", response);
 			dispatch(fetchProductsSuccess(response.data.products));
 		} catch (e) {
 			console.log("Error: ", e);

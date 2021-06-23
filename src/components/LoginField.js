@@ -30,22 +30,22 @@ export default function LoginField() {
 	}
 
 	return (
-		<div id="main">
+		<div id="mainFormField">
 			<h1>Login</h1>
 			<form id="form">
 				<div>
-					<div class="form-item">
-						<label class="form-label">Email address</label>
+					<div className="form-item">
+						<label className="form-label">Email address</label>
 					</div>
-					<div class="form-item">
-						<label class="form-label">Password</label>
+					<div className="form-item">
+						<label className="form-label">Password</label>
 					</div>
 				</div>
 
 				<div>
-					<div class="form-item">
+					<div className="form-item">
 						<input
-							class="form-input"
+							className="form-input"
 							value={email}
 							onChange={(event) => setEmail(event.target.value)}
 							type="email"
@@ -53,9 +53,9 @@ export default function LoginField() {
 							required
 						/>
 					</div>
-					<div class="form-item">
+					<div className="form-item">
 						<input
-							class="form-input"
+							className="form-input"
 							value={password}
 							onChange={(event) => setPassword(event.target.value)}
 							type="password"

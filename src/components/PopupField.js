@@ -1,4 +1,4 @@
-import "./styling/Forms.css";
+import "./styling/PopupField.css";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { popupOff } from "../store/appStates/actions";

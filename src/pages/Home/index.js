@@ -4,14 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../../components/ProductCard";
 
 import { fetchProducts } from "../../store/products/actions";
-import { selectProductsData } from "../../store/products/selectors";
+import {
+	selectProductsData,
+	selectIsFetching,
+} from "../../store/products/selectors";
 
 import "./home.css";
 
 export default function Home() {
 	const dispatch = useDispatch();
-	const productData = useSelector(selectProductsData);
-	const products = productData;
+	const products = useSelector(selectProductsData);
+	const isFetching = useSelector(selectIsFetching);
+	console.log(products);
 
 	useEffect(() => {
 		dispatch(fetchProducts());
@@ -19,7 +23,10 @@ export default function Home() {
 
 	return (
 		<div id="main">
-			<h1>What is Transpa</h1>
+			<div className="blockTitle">
+				<h1>What is Transpa</h1>
+			</div>
+
 			<div id="TranspaIntro">
 				<div id="home-image">
 					<img
@@ -28,6 +35,7 @@ export default function Home() {
 					/>
 				</div>
 				<div id="home-introText">
+					<h4>Bacon ipsum </h4>
 					<p>
 						Bacon ipsum dolor amet bacon spare ribs bresaola, doner t-bone
 						fatback boudin beef ribs jowl shank brisket sirloin tongue capicola
@@ -35,20 +43,38 @@ export default function Home() {
 						spare ribs ham hock capicola beef meatball pig picanha ball tip
 						rump.
 					</p>
+					<h4>Crypto ipsum </h4>
+					<p>
+						Basic Attention Token stuck lots of node behind some bug bounty!
+						ERC721 token standard did many reinvested technical analysis in many
+						fish, however, IPO allowed few genesis block during many custodial.
+						Blockchain launched a volume at many ledger. IOTA thought lots of
+						considerable bear trap because Waves thinking a peer-to-peer
+						network, or Dogecoin based on some algo-traded permissioned ledger
+						because Satoshi Nakamoto waited some dolphin!
+					</p>
 				</div>
 			</div>
-			<h2>Products</h2>
-			<div id="productCards">
-				{products.map((product) => (
-					<div class="productCard" key={product.id}>
-						<ProductCard
-							id={product.id}
-							title={product.title}
-							imageURL={product.mainProductImageURL}
-						/>
-					</div>
-				))}
+			<div className="blockTitle">
+				<h1>Products</h1>
 			</div>
+			{!isFetching && (
+				<div>
+					<div id="productCards">
+						{products.map((product) => (
+							<div className="productCard" key={product.id}>
+								<ProductCard
+									id={product.id}
+									colour={product.colour}
+									company={product.company.companyName}
+									productName={product.productName}
+									imageURL={product.mainProductImageURL}
+								/>
+							</div>
+						))}
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }

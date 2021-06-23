@@ -26,39 +26,39 @@ export default function NavBar() {
 	};
 
 	return (
-		<div class="navbar">
+		<div className="navbar">
 			<Link to="/">
 				{" "}
-				<div class="nav-item">Home</div>
+				<div className="nav-item">Home</div>
 			</Link>
 
 			{token && (
 				<div id="loggedIn">
 					<Link to="/dashBoard">
 						{" "}
-						<div class="nav-item">Dashboard </div>
+						<div className="nav-item">Dashboard </div>
 					</Link>
 
 					<Link to="/addProduct">
 						{" "}
-						<div class="nav-item">Add Product </div>
+						<div className="nav-item">Add Product </div>
 					</Link>
 				</div>
 			)}
 			{!token && (
 				<button onClick={logoutUser}>
-					<div class="nav-item">Logout </div>
+					<div className="nav-item">Logout </div>
 				</button>
 			)}
 
 			{token && (
 				<div id="loggedOut">
-					<button class="nav-button" onClick={loginPopupToggle}>
-						<div class="nav-item">Login </div>
+					<button className="nav-button" onClick={loginPopupToggle}>
+						<div className="nav-item">Login </div>
 					</button>
 
-					<button class="nav-button" onClick={registerPopupToggle}>
-						<div class="nav-item">Register </div>
+					<button className="nav-button" onClick={registerPopupToggle}>
+						<div className="nav-item">Register </div>
 					</button>
 				</div>
 			)}
