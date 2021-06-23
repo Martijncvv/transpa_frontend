@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
+
 import { register } from "../store/users/actions";
 import { selectToken } from "../store/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { Col } from "react-bootstrap";
+
+import "./styling/Forms.css";
 
 export default function Register() {
 	const [companyName, setCompanyName] = useState("");
@@ -62,118 +61,126 @@ export default function Register() {
 	}
 
 	return (
-		<Container>
-			<Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-				<h1 className="mt-5 mb-5">Register</h1>
+		<div id="main">
+			<h1>Register</h1>
+			<form id="form">
+				<div>
+					<div class="form-item">
+						<label class="form-label">Company</label>
+					</div>
+					<div class="form-item">
+						<label class="form-label">Name</label>
+					</div>
+					<div class="form-item">
+						<label class="form-label">Surname</label>
+					</div>
+					<div class="form-item">
+						<label class="form-label">Email</label>
+					</div>
+					<div class="form-item">
+						<label class="form-label">Repeat email</label>
+					</div>
+					<div class="form-item">
+						<label class="form-label">Password</label>
+					</div>
+					<div class="form-item">
+						<label class="form-label">Repeat password</label>
+					</div>
+					<div class="form-item">
+						<label class="form-label">Company image URL</label>
+					</div>
+					<div class="form-item">
+						<label class="form-label">Detailed company info</label>
+					</div>
+				</div>
 
-				<Form.Group>
-					<Form.Label>Company </Form.Label>
-					<Form.Control
-						value={companyName}
-						onChange={(event) => setCompanyName(event.target.value)}
-						type="text"
-						placeholder="Enter company name"
-						required
-					/>
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Label>Name </Form.Label>
-					<Form.Control
-						value={name}
-						onChange={(event) => setName(event.target.value)}
-						type="text"
-						placeholder="Enter name"
-						required
-					/>
-					{/* <Form.Text className="text-muted">
-						We'll never share your email with anyone else.
-					</Form.Text> */}
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Label>Surname </Form.Label>
-					<Form.Control
-						value={surname}
-						onChange={(event) => setSurname(event.target.value)}
-						type="text"
-						placeholder="Enter surname"
-						required
-					/>
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Label>Email </Form.Label>
-					<Form.Control
-						value={email}
-						onChange={(event) => setEmail(event.target.value)}
-						type="email"
-						placeholder="Enter email"
-						required
-					/>
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Label>Repeat email </Form.Label>
-					<Form.Control
-						value={repeatEmail}
-						onChange={(event) => setRepeatEmail(event.target.value)}
-						type="email"
-						placeholder="Enter email"
-						required
-					/>
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Label>Password </Form.Label>
-					<Form.Control
-						value={password}
-						onChange={(event) => setPassword(event.target.value)}
-						type="password"
-						placeholder="Password"
-						required
-					/>
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Label>Repeat password </Form.Label>
-					<Form.Control
-						value={repeatPassword}
-						onChange={(event) => setRepeatPassword(event.target.value)}
-						type="password"
-						placeholder="Password"
-						required
-					/>
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Label>Company image Url </Form.Label>
-					<Form.Control
-						value={companyImageUrl}
-						onChange={(event) => setCompanyImageUrl(event.target.value)}
-						type="text"
-						placeholder="Enter company image URL"
-						required
-					/>
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Label>Detailed company info </Form.Label>
-					<Form.Control
-						value={detailedCompanyInfo}
-						onChange={(event) => setDetailedCompanyInfo(event.target.value)}
-						type="text"
-						placeholder="Enter detailed company info"
-						required
-					/>
-				</Form.Group>
-
-				<Form.Group className="mt-5">
-					<Button variant="primary" type="submit" onClick={submitForm}>
-						Register
-					</Button>
-				</Form.Group>
-			</Form>
-		</Container>
+				<div>
+					<div class="form-item">
+						<input
+							value={companyName}
+							onChange={(event) => setCompanyName(event.target.value)}
+							type="text"
+							placeholder="Company name"
+							required
+						/>
+					</div>
+					<div class="form-item">
+						<input
+							value={name}
+							onChange={(event) => setName(event.target.value)}
+							type="text"
+							placeholder="Name"
+							required
+						/>
+					</div>
+					<div class="form-item">
+						<input
+							value={surname}
+							onChange={(event) => setSurname(event.target.value)}
+							type="text"
+							placeholder="Surname"
+							required
+						/>
+					</div>
+					<div class="form-item">
+						<input
+							value={email}
+							onChange={(event) => setEmail(event.target.value)}
+							type="email"
+							placeholder="Email"
+							required
+						/>
+					</div>
+					<div class="form-item">
+						<input
+							value={repeatEmail}
+							onChange={(event) => setRepeatEmail(event.target.value)}
+							type="email"
+							placeholder="Email"
+							required
+						/>
+					</div>
+					<div class="form-item">
+						<input
+							value={password}
+							onChange={(event) => setPassword(event.target.value)}
+							type="password"
+							placeholder="Password"
+							required
+						/>
+					</div>
+					<div class="form-item">
+						<input
+							value={repeatPassword}
+							onChange={(event) => setRepeatPassword(event.target.value)}
+							type="password"
+							placeholder="Password"
+							required
+						/>
+					</div>
+					<div class="form-item">
+						<input
+							value={companyImageUrl}
+							onChange={(event) => setCompanyImageUrl(event.target.value)}
+							type="text"
+							placeholder="Company image URL"
+							required
+						/>
+					</div>
+					<div class="form-item">
+						<textarea
+							value={detailedCompanyInfo}
+							onChange={(event) => setDetailedCompanyInfo(event.target.value)}
+							type="text"
+							placeholder="Detailed company info"
+							required
+						/>
+					</div>
+				</div>
+			</form>
+			<button id="form-button" type="submit" onClick={submitForm}>
+				Register
+			</button>
+		</div>
 	);
 }

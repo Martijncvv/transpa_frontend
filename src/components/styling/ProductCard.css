@@ -1,0 +1,20 @@
+#productCard {
+	display: flex;
+	flex-direction: column;
+	margin: 30px;
+	padding: 10px;
+
+	height: 600px;
+	width: 400px;
+
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(53, 169, 180, 0.555),
+		0 6px 20px 0 rgba(118, 116, 141, 0.281);
+}
+
+img {
+	height: 70%;
+	width: auto;
+	object-fit: contain;
+}

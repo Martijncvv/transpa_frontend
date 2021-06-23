@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styling/App.css";
 import { Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
