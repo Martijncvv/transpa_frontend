@@ -151,7 +151,6 @@ export const addProducts = (
 	return async (dispatch, getState) => {
 		const { token } = selectUser(getState());
 		try {
-			console.log("relevantProductIds", relevantProductIds);
 			dispatch(fetchingData());
 			const response = await axios.post(
 				`${apiUrl}/products/addProduct/`,
@@ -204,7 +203,6 @@ export const addProducts = (
 
 export const deleteProduct = (productId) => {
 	return async (dispatch, getState) => {
-		console.log(productId);
 		try {
 			const response = await axios.delete(
 				`${apiUrl}/products/delete/${productId}`

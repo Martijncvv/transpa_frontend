@@ -53,7 +53,6 @@ export default function AddProduct() {
 	const locations = useSelector(selectLocations);
 	const addLocationPopup = useSelector(selectAddLocationPopupState);
 	const companyProducts = useSelector(selectProductsData);
-	// console.log("companyProducts", companyProducts);
 
 	useEffect(() => {
 		dispatch(fetchLocations());
