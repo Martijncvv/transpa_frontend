@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import { login } from "../store/users/actions";
 import { selectToken } from "../store/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+
+import "./styling/Forms.css";
 
 export default function LoginField() {
 	const [email, setEmail] = useState("");
@@ -16,12 +15,12 @@ export default function LoginField() {
 
 	useEffect(() => {
 		if (token !== null) {
-			history.push("/");
+			history.push("/dashboard");
 		}
 	}, [token, history]);
 
 	function submitForm(event) {
-		console.log("hi");
+		console.log("request sent");
 		event.preventDefault();
 
 		dispatch(login(email, password));
@@ -31,36 +30,44 @@ export default function LoginField() {
 	}
 
 	return (
-		<Container>
-			<Form>
-				<h1>Login</h1>
-				<Form.Group>
-					<Form.Label>Email address</Form.Label>
-					<Form.Control
-						value={email}
-						onChange={(event) => setEmail(event.target.value)}
-						type="email"
-						placeholder="Enter email"
-						required
-					/>
-				</Form.Group>
+		<div id="mainFormField">
+			<h1>Login</h1>
+			<form id="form">
+				<div>
+					<div className="form-item">
+						<label className="form-label">Email address</label>
+					</div>
+					<div className="form-item">
+						<label className="form-label">Password</label>
+					</div>
+				</div>
 
-				<Form.Group>
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						value={password}
-						onChange={(event) => setPassword(event.target.value)}
-						type="password"
-						placeholder="Password"
-						required
-					/>
-				</Form.Group>
-				<Form.Group>
-					<Button variant="primary" type="submit" onClick={submitForm}>
-						Log in
-					</Button>
-				</Form.Group>
-			</Form>
-		</Container>
+				<div>
+					<div className="form-item">
+						<input
+							className="form-input"
+							value={email}
+							onChange={(event) => setEmail(event.target.value)}
+							type="email"
+							placeholder="Enter email"
+							required
+						/>
+					</div>
+					<div className="form-item">
+						<input
+							className="form-input"
+							value={password}
+							onChange={(event) => setPassword(event.target.value)}
+							type="password"
+							placeholder="Password"
+							required
+						/>
+					</div>
+				</div>
+			</form>
+			<button id="form-button" type="submit" onClick={submitForm}>
+				Log in
+			</button>
+		</div>
 	);
 }

@@ -1,8 +1,8 @@
+import "./styling/PopupField.css";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { popupOff } from "../store/appStates/actions";
-
-import "./Components.css";
+import MessageBox from "./MessageBox";
 
 export default function PopupField(props) {
 	const dispatch = useDispatch();
@@ -14,6 +14,7 @@ export default function PopupField(props) {
 	return (
 		<div className="popup-box">
 			<div className="box">
+				<MessageBox />
 				<span className="close-icon" onClick={togglePopupOff}>
 					x
 				</span>

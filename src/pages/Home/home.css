@@ -1,0 +1,59 @@
+#main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	color: rgb(77, 77, 77);
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+h1 {
+	font-size: 45px;
+}
+
+#TranspaIntro {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 70px 0px;
+
+	background-color: rgba(53, 169, 180, 0.219);
+}
+
+#home-image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/* width: 40%; */
+	background-color: rgb(255, 255, 255);
+}
+#transpa-image {
+	height: 500px;
+}
+
+#home-introText {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+
+	width: 40%;
+}
+
+#productCards {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	background-color: rgba(53, 169, 180, 0.219);
+	width: 100%;
+	padding: 20px;
+}
+
+.blockTitle {
+	display: flex;
+	align-items: center;
+	height: 120px;
+	text-align: center;
+}

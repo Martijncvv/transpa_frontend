@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styling/App.css";
 import { Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -11,6 +11,7 @@ import NavBar from "./components/NavBar";
 import PopupField from "./components/PopupField";
 import LoginField from "./components/LoginField";
 import RegisterField from "./components/RegisterField";
+import MessageBox from "./components/MessageBox";
 
 import {
 	selectLoginPopupState,
@@ -24,6 +25,7 @@ function App() {
 	return (
 		<div className="App">
 			<NavBar />
+			<MessageBox />
 			<div>
 				{loginPopupState && <PopupField content={<LoginField />} />}
 				{registerPopupState && <PopupField content={<RegisterField />} />}
@@ -34,6 +36,7 @@ function App() {
 				<Route path="/productDetails/:id" component={ProductPage} />
 				<Route path="/addProduct" component={AddProduct} />
 			</Switch>
+			<div id="footer"></div>
 		</div>
 	);
 }

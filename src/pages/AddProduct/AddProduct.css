@@ -1,0 +1,199 @@
+#main-add-product {
+	padding: 20px;
+	font-size: 20px;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+#add-product-top {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#add-product-top-left {
+	width: 20%;
+}
+
+#add-product-top-right {
+	display: flex;
+	padding: 20px 10px;
+	justify-content: space-between;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(53, 169, 180, 0.555),
+		0 6px 20px 0 rgba(118, 116, 141, 0.281);
+
+	width: 50%;
+	height: 70%;
+}
+.imagepreview-label {
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.imagepreview {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-height: 70%;
+	max-width: 70%;
+	width: auto;
+	object-fit: contain;
+}
+
+#add-product-middle {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.container {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom radio button */
+.radioCheckmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+	border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .radioCheckmark {
+	background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .radioCheckmark {
+	background-color: rgb(53, 169, 180);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radioCheckmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .radioCheckmark:after {
+	display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .radioCheckmark:after {
+	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+	background-color: rgb(53, 169, 180);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.addProductButton {
+	height: 35px;
+	width: 120px;
+
+	text-transform: capitalize;
+	font-size: 15px;
+	font-weight: 600;
+	text-align: center;
+
+	background-color: rgb(53, 169, 180);
+	border: rgba(102, 205, 171, 0.979);
+	border-radius: 5px;
+	color: rgb(255, 255, 255);
+}
+
+.addProductButton:hover {
+	color: rgb(231, 231, 231);
+	box-shadow: 0 1px 2px 0 rgba(53, 169, 180, 0.555),
+		0 2px 5px 0 rgba(118, 116, 141, 0.281);
+}
+.addProductButton:active {
+	color: rgb(187, 187, 187);
+	box-shadow: 0 1px 2px 0 rgba(53, 169, 180, 0.555),
+		0 2px 5px 0 rgba(118, 116, 141, 0.281);
+}
+
+#add-product-bottom {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+#questions {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.add-product-question {
+	display: flex;
+	justify-content: space-around;
+	width: 20%;
+}

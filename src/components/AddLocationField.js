@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { addLocation } from "../store/products/actions";
 import { popupOff } from "../store/appStates/actions";
 
+import "./styling/AddLocationField.css";
+
 export default function AddLocationField() {
 	const [zipcode, setZipcode] = useState("");
 	const [streetNumber, setStreetNumber] = useState("");
@@ -24,20 +26,36 @@ export default function AddLocationField() {
 		<div>
 			<h2>Add Location</h2>
 			<form>
-				<label htmlFor="zipcode ">Zip code:</label>
-				<input
-					type="text"
-					id="zipcode"
-					onChange={(event) => setZipcode(event.target.value)}
-				></input>
-				<label htmlFor="streetNumber ">Street number:</label>
-				<input
-					type="number"
-					id="streetNumber"
-					onChange={(event) => setStreetNumber(event.target.value)}
-				></input>
+				<div id="add-location-form">
+					<div>
+						<div>
+							<label htmlFor="zipcode ">Zip code</label>
+						</div>
+						<div>
+							<label htmlFor="streetNumber ">Street number</label>
+						</div>
+					</div>
 
-				<button type="button" onClick={submitForm}>
+					<div>
+						<div>
+							<input
+								type="text"
+								id="zipcode"
+								onChange={(event) => setZipcode(event.target.value)}
+							></input>
+						</div>
+
+						<div>
+							<input
+								type="number"
+								id="streetNumber"
+								onChange={(event) => setStreetNumber(event.target.value)}
+							></input>
+						</div>
+					</div>
+				</div>
+
+				<button id="add-location-button" type="button" onClick={submitForm}>
 					Submit
 				</button>
 			</form>

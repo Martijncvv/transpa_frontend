@@ -1,0 +1,50 @@
+.popup-box {
+	position: fixed;
+	background: #00000050;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+}
+
+.box {
+	position: relative;
+	width: 50%;
+	margin: 0 auto;
+	height: auto;
+	max-height: 70vh;
+	margin-top: calc(15vh - 20px);
+	background: #fff;
+	border-radius: 4px;
+	padding: 0px 20px 50px;
+	border: 1px solid rgb(118, 190, 190);
+	overflow: auto;
+
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(143, 189, 189, 0.555),
+		0 6px 20px 0 rgba(118, 116, 141, 0.281);
+	overflow: hidden;
+	z-index: -1;
+}
+
+.close-icon {
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	font-weight: 500;
+	content: "x";
+	cursor: pointer;
+	position: fixed;
+	right: calc(25% - 30px);
+	top: calc(15vh - 33px);
+	background: #ededed;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	line-height: 25px;
+	text-align: center;
+	border: 1px solid rgb(118, 190, 190);
+	font-size: 25px;
+}
+.close-icon:hover {
+	background: #e2e2e2;
+}
