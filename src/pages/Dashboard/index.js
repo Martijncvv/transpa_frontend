@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	BarChart,
 	Bar,
+	Cell,
 	XAxis,
 	YAxis,
 	CartesianGrid,
 	Tooltip,
 	Legend,
+	ResponsiveContainer,
 } from "recharts";
 
 import {
@@ -48,64 +50,39 @@ export default function Dashboard() {
 	}
 	const feedbackData = [];
 	let dataPoint = {};
-	products.map((product) => {
-		product.questions.map((questionData) => {
+	products?.map((product) => {
+		product.questions?.map((questionData) => {
 			dataPoint = {};
-			dataPoint = {
-				question: questionData.question,
-			};
+
 			questionData.answers.map((answerData) => {
+				// dataPoint[answerData.answer] = answerData.voteCount;
 				dataPoint[answerData.answer] = answerData.voteCount;
 			});
+			// dataPoint["name"] = questionData.question;
+			feedbackData.push(dataPoint);
 		});
-		feedbackData.push(dataPoint);
 	});
 	console.log("feedbackData", feedbackData);
 
 	const data = [
 		{
-			question: "Page A",
-			a: 0,
+			name: "Vraag 1",
+			a: 2,
 			b: 3,
 			c: 0,
 			d: 2,
 		},
-		{
-			question: "Page B",
-			a: 0,
-			b: 1,
-			c: 2,
-			d: 0,
-		},
+		// {
+		// 	name: "Page B",
+		// 	a: 2,
+		// 	b: 1,
+		// 	c: 2,
+		// 	d: 0,
+		// },
 	];
 
 	return (
 		<div>
-			<div>
-				<BarChart
-					width={500}
-					height={300}
-					data={data}
-					margin={{
-						top: 5,
-						right: 30,
-						left: 20,
-						bottom: 5,
-					}}
-				>
-					<CartesianGrid strokeDasharray="3 3" />
-					<XAxis dataKey="name" />
-					<YAxis />
-					<Tooltip />
-					<Legend />
-					<Bar dataKey="question" fill="#8884d8" />
-					<Bar dataKey="a" fill="#FFca9d" />
-					<Bar dataKey="b" fill="#82FF9d" />
-					<Bar dataKey="c" fill="#82caFF" />
-					<Bar dataKey="d" fill="#FFcaFF" />
-				</BarChart>
-			</div>
-
 			{!isFetching && (
 				<div id="main-dashboard">
 					<h1>Dashboard</h1>
@@ -157,16 +134,21 @@ export default function Dashboard() {
 						))}
 					</div>
 
-					<div>
-						<p>QR-Codes</p>
-						{products.map((product) => (
-							<div key={product.id}>
-								<button onClick={() => setQrCodeLink(product.id)}>
-									{product.productName}
-								</button>
-							</div>
-						))}
-						<br />
+					<div id="dashboard-qrcodes">
+						<h2>QR-Codes</h2>
+						<div id="dashboard-qrcode-nav">
+							{products.map((product) => (
+								<div key={product.id}>
+									<button
+										className="dashboard-qrcode-nav-button"
+										onClick={() => setQrCodeLink(product.id)}
+									>
+										{product.productName}
+									</button>
+								</div>
+							))}{" "}
+						</div>
+
 						<QRCode value={qrLink} />
 					</div>
 				</div>

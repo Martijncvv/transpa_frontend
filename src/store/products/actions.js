@@ -3,6 +3,8 @@ import axios from "axios";
 import { selectUser } from "../users/selectors";
 import { fetchingDone } from "../../store/appStates/actions";
 
+import { showMessageWithTimeout } from "../appStates/actions";
+
 export const fetchingData = () => ({ type: "FETCHING_DATA" });
 
 export const fetchProductsSuccess = (products) => ({
@@ -193,7 +195,7 @@ export const addProducts = (
 				}
 			);
 			console.log("RESPONSE", response);
-			// dispatch(AddLocationSuccess(response.data.product));
+			dispatch(showMessageWithTimeout("success", "Product added"));
 		} catch (e) {
 			console.log(e);
 		}
@@ -208,6 +210,7 @@ export const deleteProduct = (productId) => {
 			);
 			console.log("response delete product:", response.data);
 			dispatch(deleteProductsSuccess(productId));
+			dispatch(showMessageWithTimeout("delete", "Product deleted"));
 		} catch (e) {
 			console.log(e);
 		}

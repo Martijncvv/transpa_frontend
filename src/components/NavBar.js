@@ -45,13 +45,13 @@ export default function NavBar() {
 					</Link>
 				</div>
 			)}
-			{!token && (
-				<button onClick={logoutUser}>
+			{token && (
+				<button className="nav-button" onClick={logoutUser}>
 					<div className="nav-item">Logout </div>
 				</button>
 			)}
 
-			{token && (
+			{!token && (
 				<div id="loggedOut">
 					<button className="nav-button" onClick={loginPopupToggle}>
 						<div className="nav-item">Login </div>
@@ -62,8 +62,7 @@ export default function NavBar() {
 					</button>
 				</div>
 			)}
-
-			{user.name && <p>Welcome {user.name}</p>}
+			<div className="nav-item">{user.name && <p>Welcome {user.name}</p>}</div>
 		</div>
 	);
 }

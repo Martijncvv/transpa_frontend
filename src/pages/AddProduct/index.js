@@ -1,7 +1,6 @@
 import "./AddProduct.css";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 
 import { fetchLocations } from "../../store/products/actions";
 import { selectLocations } from "../../store/products/selectors";
@@ -228,19 +227,19 @@ export default function AddProduct() {
 					<div id="add-product-top-right">
 						<div className="imagepreview">
 							<label className="imagepreview-label">Preview main image</label>
-							<img src={mainProductImageURL} />
+							<img alt="preview image" src={mainProductImageURL} />
 						</div>
 						<div className="imagepreview">
 							<label className="imagepreview-label">Preview image 1</label>
-							<img src={productImage_1} />
+							<img alt="preview image" src={productImage_1} />
 						</div>
 						<div className="imagepreview">
 							<label className="imagepreview-label">Preview image 2</label>
-							<img src={productImage_2} />
+							<img alt="preview image" src={productImage_2} />
 						</div>
 						<div className="imagepreview">
 							<label className="imagepreview-label">Preview image 3</label>
-							<img src={productImage_3} />
+							<img alt="preview image" src={productImage_3} />
 						</div>
 					</div>
 				</div>

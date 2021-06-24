@@ -4,3 +4,5 @@ export const selectRegisterPopupState = (state) =>
 export const selectAddLocationPopupState = (state) =>
 	state.appStates.addLocationPopupState;
 export const selectFetchingState = (state) => state.appStates.fetchingDone;
+
+export const selectMessage = (state) => state.appStates.message;

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import { register } from "../store/users/actions";
-import { selectToken } from "../store/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
+import { register } from "../store/users/actions";
+import { selectToken } from "../store/users/selectors";
+import { showMessageWithTimeout } from "../store/appStates/actions";
 import "./styling/Forms.css";
 
 export default function Register() {
@@ -47,6 +47,9 @@ export default function Register() {
 			);
 		} else {
 			console.log("Password or email not the same");
+			dispatch(
+				showMessageWithTimeout("error", "Password or email not the same")
+			);
 		}
 
 		setCompanyName("");

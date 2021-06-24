@@ -3,6 +3,7 @@ const initialState = {
 	registerPopupState: false,
 	addLocationPopupState: false,
 	fetchingDone: false,
+	message: null,
 };
 
 export default (state = initialState, action) => {
@@ -24,6 +25,11 @@ export default (state = initialState, action) => {
 			return { ...state, fetchingDone: true };
 		case "FETCHING_LOADING":
 			return { ...state, fetchingDone: false };
+
+		case "SET_MESSAGE":
+			return { ...state, message: action.payload };
+		case "CLEAR_MESSAGE":
+			return { ...state, message: null };
 		default:
 			return state;
 	}

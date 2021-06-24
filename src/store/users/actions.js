@@ -3,6 +3,8 @@ import axios from "axios";
 import { selectToken } from "./selectors";
 import { popupOff } from "../appStates/actions";
 
+import { showMessageWithTimeout } from "../appStates/actions";
+
 const loginSuccess = (userWithToken) => {
 	return {
 		type: "LOGIN_SUCCESS",
@@ -40,7 +42,9 @@ export const register = (
 			console.log("register response", response);
 			dispatch(loginSuccess(response.data));
 			dispatch(popupOff());
+			dispatch(showMessageWithTimeout("success", "Register successful"));
 		} catch (error) {
+			dispatch(showMessageWithTimeout("error", "Register unsuccessful"));
 			if (error.response) {
 				console.log(error.response.data.message);
 			} else {
@@ -60,7 +64,9 @@ export const login = (email, password) => {
 			console.log("login response", response);
 			dispatch(loginSuccess(response.data));
 			dispatch(popupOff());
+			dispatch(showMessageWithTimeout("success", "Login successful"));
 		} catch (error) {
+			dispatch(showMessageWithTimeout("error", "Login unsuccessful"));
 			if (error.response) {
 				console.log(error.response.data.message);
 			} else {
