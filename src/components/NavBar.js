@@ -28,8 +28,13 @@ export default function NavBar() {
 	return (
 		<div className="navbar">
 			<Link to="/">
-				{" "}
-				<div className="nav-item">Home</div>
+				<div>
+					<img
+						id="nav-logo"
+						src="https://i.ibb.co/CMw9mGY/Transpa-Logo-1.png"
+						alt="Transpa-Logo-1"
+					/>
+				</div>
 			</Link>
 
 			{token && (
@@ -43,6 +48,10 @@ export default function NavBar() {
 						{" "}
 						<div className="nav-item">Add Product </div>
 					</Link>
+
+					<div className="nav-item">
+						{user.name && <p>Welcome {user.name}</p>}
+					</div>
 				</div>
 			)}
 			{token && (
@@ -62,7 +71,6 @@ export default function NavBar() {
 					</button>
 				</div>
 			)}
-			<div className="nav-item">{user.name && <p>Welcome {user.name}</p>}</div>
 		</div>
 	);
 }

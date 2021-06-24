@@ -24,6 +24,7 @@
 	box-shadow: 0 4px 8px 0 rgba(143, 189, 189, 0.555),
 		0 6px 20px 0 rgba(118, 116, 141, 0.281);
 	overflow: hidden;
+	z-index: -1;
 }
 
 .close-icon {

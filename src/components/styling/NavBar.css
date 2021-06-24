@@ -55,3 +55,8 @@ a:hover {
 	cursor: pointer;
 	outline: inherit;
 }
+
+#nav-logo {
+	margin-left: 20px;
+	height: 50px;
+}

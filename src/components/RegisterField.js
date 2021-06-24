@@ -27,7 +27,7 @@ export default function Register() {
 
 	useEffect(() => {
 		if (token !== null) {
-			history.push("/");
+			history.push("/addProduct");
 		}
 	}, [token, history]);
 

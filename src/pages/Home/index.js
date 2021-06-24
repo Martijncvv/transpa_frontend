@@ -30,8 +30,9 @@ export default function Home() {
 			<div id="TranspaIntro">
 				<div id="home-image">
 					<img
-						src="https://cdn2.iconfinder.com/data/icons/social-media-agency-malibu-vol-2/128/Transparency-512.png"
-						alt="testimage"
+						id="transpa-image"
+						src="https://i.ibb.co/W0Jkpv8/Transpa-Sticker.jpg"
+						alt="Transpa Logo"
 					/>
 				</div>
 				<div id="home-introText">

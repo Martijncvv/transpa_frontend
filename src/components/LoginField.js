@@ -15,7 +15,7 @@ export default function LoginField() {
 
 	useEffect(() => {
 		if (token !== null) {
-			history.push("/");
+			history.push("/dashboard");
 		}
 	}, [token, history]);
 

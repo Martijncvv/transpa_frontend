@@ -36,6 +36,7 @@ function App() {
 				<Route path="/productDetails/:id" component={ProductPage} />
 				<Route path="/addProduct" component={AddProduct} />
 			</Switch>
+			<div id="footer"></div>
 		</div>
 	);
 }

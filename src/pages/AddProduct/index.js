@@ -1,6 +1,7 @@
 import "./AddProduct.css";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import { fetchLocations } from "../../store/products/actions";
 import { selectLocations } from "../../store/products/selectors";
@@ -19,6 +20,7 @@ import AddLocationField from "../../components/AddLocationField";
 
 export default function AddProduct() {
 	const dispatch = useDispatch();
+	const history = useHistory();
 	const [productName, setProductName] = useState("");
 	const [mainProductImageURL, setMainProductImageURL] = useState("");
 	const [colour, setColour] = useState("");
@@ -97,6 +99,8 @@ export default function AddProduct() {
 				answer_3d
 			)
 		);
+
+		history.push("/dashboard");
 	}
 
 	const addRelevantProduct = (productId) => {
