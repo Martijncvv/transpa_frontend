@@ -1,0 +1,146 @@
+#main-product-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 5px;
+	padding: 2%;
+
+	font-size: 20px;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+#product-page-product-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	margin: 30px;
+	padding: 40px 10px 40px;
+
+	height: 100%;
+	width: 70%;
+
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(53, 169, 180, 0.555),
+		0 6px 20px 0 rgba(118, 116, 141, 0.281);
+}
+
+#product-page-main-image {
+	max-height: 70%;
+	max-height: 500px;
+	max-width: 70%;
+	width: auto;
+	object-fit: contain;
+}
+
+#product-page-top {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#product-page-product-details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 70%;
+}
+
+#product-images {
+	display: flex;
+	justify-content: space-evenly;
+	margin-bottom: 30px;
+}
+
+.product-image {
+	display: flex;
+	justify-content: space-evenly;
+	width: 80%;
+}
+
+#product-page-feedback {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	/* justify-content: space-evenly; */
+}
+#product-page-questions {
+	display: flex;
+	justify-content: space-between;
+	width: 80%;
+}
+
+.container {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom radio button */
+.radioCheckmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+	border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .radioCheckmark {
+	background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .radioCheckmark {
+	background-color: rgb(53, 169, 180);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radioCheckmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .radioCheckmark:after {
+	display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .radioCheckmark:after {
+	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+#product-page-relevant-products {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}

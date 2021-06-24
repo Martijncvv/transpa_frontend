@@ -9,7 +9,7 @@ export default function ProductCard(props) {
 
 			<div className="productCardBottom">
 				<h2>{props.productName}</h2>
-				<span style={{ color: props.colour || "rgb(77, 77, 77);" }}>
+				<span style={{ color: props.colour || "rgb(77, 77, 77)" }}>
 					____________
 				</span>
 				<p>{props.company}</p>

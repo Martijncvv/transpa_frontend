@@ -7,6 +7,8 @@ import { selectProductsDetails } from "../../store/products/selectors";
 
 import ProductCard from "../../components/ProductCard";
 
+import "./productPage.css";
+
 export default function ProductPage() {
 	const dispatch = useDispatch();
 
@@ -16,6 +18,7 @@ export default function ProductPage() {
 
 	const questionsData = productDetails.questions;
 	const locations = productDetails.locations;
+	const videoURL = productDetails.videoURL?.replace("watch?v=", "embed/");
 
 	useEffect(() => {
 		dispatch(fetchProductDetails(id));
@@ -28,65 +31,103 @@ export default function ProductPage() {
 
 	return (
 		<div>
+			{/* <h1 style={{ color: }}>Theme colour</h1>s */}
 			{productDetails.company && (
-				<div>
-					<img
-						src={productDetails.mainProductImageURL}
-						alt={productDetails.productName}
-						style={{ height: "300px" }}
-					/>
-					<h2>{productDetails.productName}</h2>
-					<h3>{productDetails.company.companyName}</h3>
-					<h1 style={{ color: productDetails.colour }}>Theme colour</h1>
-					<h3>Product info</h3>
-					<p>{productDetails.detailedProductInfo}</p>
-					<h3>Company info</h3>
-					<p>{productDetails.company.detailedCompanyInfo}</p>
-					<p>{productDetails.videoURL}</p>
+				<div
+					id="main-product-page"
+					style={{ backgroundColor: productDetails.colour }}
+				>
+					<div id="product-page-product-card">
+						{" "}
+						<div id="product-page-top">
+							<img
+								id="product-page-main-image"
+								src={productDetails.mainProductImageURL}
+								alt={productDetails.productName}
+							/>
+							<h2>{productDetails.productName}</h2>
+							<h3>{productDetails.company.companyName}</h3>
+						</div>
+						<div id="product-page-product-details">
+							<h3>Product info</h3>
+							<p>{productDetails.detailedProductInfo}</p>
+							<h3>Company info</h3>
+							<p>{productDetails.company.detailedCompanyInfo}</p>
 
-					<h3>Product feedback</h3>
-
-					{questionsData.map((questionData) => (
-						<div key={questionData.id}>
-							<p>{questionData.question}</p>
-							<form>
-								{questionData.answers.map((answer) => (
-									<div key={answer.id}>
-										<p>{answer.answer}</p>
-										<input
-											type="radio"
-											name={questionData.id}
-											id={answer.id}
-											value={answer.id}
-											onChange={(event) => onVote(answer.id)}
-										></input>
+							<div id="product-images">
+								{productDetails.productImages.map((image) => (
+									<div key={image.id} className="product-image">
+										<img src={image.productImageURL} />
 									</div>
 								))}
-							</form>
+							</div>
+							{videoURL && (
+								<iframe width="420" height="315" src={videoURL}></iframe>
+							)}
 						</div>
-					))}
-
-					<h3>Sales locations</h3>
-					{locations.map((location) => (
-						<div key={location.id}>
-							<p>
-								- {location.zipcode} {location.streetNumber}
-							</p>
+						{productDetails.questions.length ? (
+							<div id="product-page-feedback">
+								<h3>Product feedback</h3>
+								<div id="product-page-questions">
+									{questionsData.map((questionData) => (
+										<div key={questionData.id}>
+											<p>{questionData.question}</p>
+											<form>
+												{questionData.answers.map((answer) => (
+													<div key={answer.id}>
+														<label className="container">
+															<p>{answer.answer}</p>
+															<input
+																type="radio"
+																name={questionData.id}
+																id={answer.id}
+																value={answer.id}
+																onChange={(event) => onVote(answer.id)}
+															></input>
+															<span
+																class="radioCheckmark"
+																style={{
+																	backgroundColor: productDetails.colour,
+																}}
+															></span>
+														</label>
+													</div>
+												))}
+											</form>
+										</div>
+									))}
+								</div>
+							</div>
+						) : (
+							""
+						)}
+						<h3>Sales locations</h3>
+						{locations.map((location) => (
+							<div key={location.id}>
+								<p>
+									- {location.zipcode} {location.streetNumber}
+								</p>
+							</div>
+						))}
+						<h3>Social media</h3>
+						{/* {productDetails.socialMediaURL && (
+						
+						)} */}
+						<p>{productDetails.socialMediaURL}</p>
+						<h3>Relevant products</h3>
+						<div id="product-page-relevant-products">
+							{productDetails.relevantProduct.map((product) => (
+								<div key={product.id}>
+									<ProductCard
+										id={product.id}
+										colour={product.colour}
+										title={product.title}
+										imageURL={product.mainProductImageURL}
+									/>
+								</div>
+							))}
 						</div>
-					))}
-					<h3>Social media</h3>
-					<p>{productDetails.socialMediaURL}</p>
-					<h3>Relevant products</h3>
-					{productDetails.relevantProduct.map((product) => (
-						<div key={product.id}>
-							<ProductCard
-								imageHeight="200px"
-								id={product.id}
-								title={product.title}
-								imageURL={product.mainProductImageURL}
-							/>
-						</div>
-					))}
+					</div>
 				</div>
 			)}
 		</div>
