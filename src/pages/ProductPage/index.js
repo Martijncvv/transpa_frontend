@@ -85,7 +85,7 @@ export default function ProductPage() {
 																onChange={(event) => onVote(answer.id)}
 															></input>
 															<span
-																class="radioCheckmark"
+																className="radioCheckmark"
 																style={{
 																	backgroundColor: productDetails.colour,
 																}}
@@ -121,7 +121,7 @@ export default function ProductPage() {
 									<ProductCard
 										id={product.id}
 										colour={product.colour}
-										title={product.title}
+										productName={product.productName}
 										imageURL={product.mainProductImageURL}
 									/>
 								</div>

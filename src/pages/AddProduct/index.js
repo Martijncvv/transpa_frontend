@@ -53,6 +53,7 @@ export default function AddProduct() {
 	const [answer_3d, setAnswer_3d] = useState("");
 
 	const locations = useSelector(selectLocations);
+	console.log("locations", locations);
 	const addLocationPopup = useSelector(selectAddLocationPopupState);
 	const companyProducts = useSelector(selectProductsData);
 

@@ -69,7 +69,7 @@ export const fetchCompanyProducts = () => {
 				},
 			});
 
-			console.log("Fetch company products", response);
+			// console.log("Fetch company products", response);
 			dispatch(fetchProductsSuccess(response.data.products));
 		} catch (e) {
 			console.log("Error: ", e);
