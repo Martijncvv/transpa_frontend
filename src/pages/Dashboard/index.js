@@ -1,17 +1,6 @@
 import React, { useEffect, useState, PureComponent } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
-import {
-	BarChart,
-	Bar,
-	Cell,
-	XAxis,
-	YAxis,
-	CartesianGrid,
-	Tooltip,
-	Legend,
-	ResponsiveContainer,
-} from "recharts";
+import { Bar } from "react-chartjs-2";
 
 import {
 	fetchCompanyProducts,
@@ -47,39 +36,102 @@ export default function Dashboard() {
 	function setQrCodeLink(productId) {
 		console.log(productId);
 		setQrLink(`http://localhost:3000/productDetails/${productId}`);
+		// setQrLink(
+		// 	`https://transpa-products.herokuapp.com/productDetails/${productId}`
+		// );
 	}
-	const feedbackData = [];
-	let dataPoint = {};
-	products?.map((product) => {
-		product.questions?.map((questionData) => {
-			dataPoint = {};
 
-			questionData.answers.map((answerData) => {
-				// dataPoint[answerData.answer] = answerData.voteCount;
-				dataPoint[answerData.answer] = answerData.voteCount;
+	const feedbackData = [];
+
+	products.map((product) => {
+		product.questions.map((questionData) => {
+			// feedbackData[questionData.id] = {
+			feedbackData.push({
+				question: questionData.question,
+				product: product.productName,
+				labels: [],
+				datasets: [
+					{
+						label: "# of Votes",
+						data: [],
+						backgroundColor: [
+							"rgba(255, 99, 132, 0.2)",
+							"rgba(54, 162, 235, 0.2)",
+							"rgba(255, 206, 86, 0.2)",
+							"rgba(75, 192, 192, 0.2)",
+							"rgba(153, 102, 255, 0.2)",
+							"rgba(255, 159, 64, 0.2)",
+						],
+						borderColor: [
+							"rgba(255, 99, 132, 1)",
+							"rgba(54, 162, 235, 1)",
+							"rgba(255, 206, 86, 1)",
+							"rgba(75, 192, 192, 1)",
+							"rgba(153, 102, 255, 1)",
+							"rgba(255, 159, 64, 1)",
+						],
+						borderWidth: 1,
+					},
+				],
 			});
-			// dataPoint["name"] = questionData.question;
-			feedbackData.push(dataPoint);
+			questionData.answers.map((answerData) => {
+				feedbackData[feedbackData.length - 1].labels.push(answerData.answer);
+				feedbackData[feedbackData.length - 1].datasets[0].data.push(
+					answerData.voteCount
+				);
+			});
 		});
 	});
-	console.log("feedbackData", feedbackData);
 
-	const data = [
-		{
-			name: "Vraag 1",
-			a: 2,
-			b: 3,
-			c: 0,
-			d: 2,
-		},
-		// {
-		// 	name: "Page B",
-		// 	a: 2,
-		// 	b: 1,
-		// 	c: 2,
-		// 	d: 0,
+	// <Bar data={data} options={options} />;
+	console.log("feedbackData", feedbackData);
+	const data = {
+		labels: ["Red", "Blue", "Yellow"],
+		datasets: [
+			{
+				label: "# of Votes",
+				data: [1, 1, 4],
+				backgroundColor: [
+					"rgba(255, 99, 132, 0.2)",
+					"rgba(54, 162, 235, 0.2)",
+					"rgba(255, 206, 86, 0.2)",
+					"rgba(75, 192, 192, 0.2)",
+				],
+				borderColor: [
+					"rgba(255, 99, 132, 1)",
+					"rgba(54, 162, 235, 1)",
+					"rgba(255, 206, 86, 1)",
+					"rgba(75, 192, 192, 1)",
+				],
+				borderWidth: 1,
+			},
+		],
+	};
+	// let delayed;
+	const options = {
+		// animation: {
+		// 	onComplete: () => {
+		// 		delayed = true;
+		// 	},
+		// 	delay: (context) => {
+		// 		let delay = 300;
+		// 		if (context.type === "data" && context.mode === "default" && !delayed) {
+		// 			// delay = context.dataIndex * 300 + context.datasetIndex * 100;
+		// 			delay = context.dataIndex * 300 + context.datasetIndex * 100;
+		// 		}
+		// 		return delay;
+		// 	},
 		// },
-	];
+		scales: {
+			yAxes: [
+				{
+					ticks: {
+						beginAtZero: true,
+					},
+				},
+			],
+		},
+	};
 
 	return (
 		<div>
@@ -105,31 +157,14 @@ export default function Dashboard() {
 							</div>
 						))}
 					</div>
-					<h2>Feedback</h2>
 
+					<h1>Product feedback</h1>
 					<div id="dashboard-feedback">
-						{products?.map((product) => (
-							<div key={product.id} className="feedback-column">
-								{product.questions?.length ? (
-									<>
-										<h2>{product.productName}</h2>
-										{product.questions?.map((questionData) => (
-											<div key={questionData.id}>
-												<h3>{questionData.question}</h3>
-
-												{questionData.answers?.map((answerData) => (
-													<div key={answerData.id}>
-														<p>
-															{answerData.answer} Votes: {answerData.voteCount}
-														</p>
-													</div>
-												))}
-											</div>
-										))}
-									</>
-								) : (
-									""
-								)}
+						{feedbackData?.map((questionData, index) => (
+							<div key={index} className="feedback-column">
+								<h2>{questionData.product}</h2>
+								<p>{questionData.question}</p>
+								<Bar data={questionData} options={options} />
 							</div>
 						))}
 					</div>
