@@ -83,7 +83,6 @@ export default function Dashboard() {
 		});
 	});
 
-	// <Bar data={data} options={options} />;
 	console.log("feedbackData", feedbackData);
 	const data = {
 		labels: ["Red", "Blue", "Yellow"],
@@ -139,7 +138,7 @@ export default function Dashboard() {
 				<div id="main-dashboard">
 					<h1>Dashboard</h1>
 					<div id="dashboard-products">
-						{products.map((product) => (
+						{products?.map((product) => (
 							<div key={product.id} className="dashboard-product-card">
 								<button
 									className="dashboard-product-card-button"
@@ -172,7 +171,7 @@ export default function Dashboard() {
 					<div id="dashboard-qrcodes">
 						<h2>QR-Codes</h2>
 						<div id="dashboard-qrcode-nav">
-							{products.map((product) => (
+							{products?.map((product) => (
 								<div key={product.id}>
 									<button
 										className="dashboard-qrcode-nav-button"
@@ -184,7 +183,16 @@ export default function Dashboard() {
 							))}{" "}
 						</div>
 
-						<QRCode value={qrLink} />
+						<div>
+							<img
+								id="dashboard-transpa-image"
+								src="https://i.ibb.co/W0Jkpv8/Transpa-Sticker.jpg"
+								alt="Transpa Logo"
+							/>
+							<div id="dashboard-product-qr-code">
+								<QRCode value={qrLink} />
+							</div>
+						</div>
 					</div>
 				</div>
 			)}
