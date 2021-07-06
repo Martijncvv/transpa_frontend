@@ -23,8 +23,9 @@ export default function Home() {
 
 	return (
 		<div id="main">
-			<div className="blockTitle">
-				<h1>What is Transpa</h1>
+			<div id="home-main-title">
+				<p>Sometimes a product is more than just a product</p>
+				<p>Inform, Educate, Inspire</p>
 			</div>
 
 			<div id="TranspaIntro">
@@ -36,26 +37,124 @@ export default function Home() {
 					/>
 				</div>
 				<div id="home-introText">
-					<h4>Bacon ipsum </h4>
+					<h4>Transpa Product transparency platform</h4>
 					<p>
-						Bacon ipsum dolor amet bacon spare ribs bresaola, doner t-bone
-						fatback boudin beef ribs jowl shank brisket sirloin tongue capicola
-						pork. Pork belly landjaeger hamburger, leberkas turducken prosciutto
-						spare ribs ham hock capicola beef meatball pig picanha ball tip
-						rump.
+						Connecting business and customer by communicating through the
+						product.
 					</p>
-					<h4>Crypto ipsum </h4>
+
 					<p>
-						Basic Attention Token stuck lots of node behind some bug bounty!
-						ERC721 token standard did many reinvested technical analysis in many
-						fish, however, IPO allowed few genesis block during many custodial.
-						Blockchain launched a volume at many ledger. IOTA thought lots of
-						considerable bear trap because Waves thinking a peer-to-peer
-						network, or Dogecoin based on some algo-traded permissioned ledger
-						because Satoshi Nakamoto waited some dolphin!
+						"Consumers are shifting their loyalty and trust from brands to
+						products. Depending upon the strength of the brand, this shift could
+						take place quickly or more slowly, but it seems inevitable,
+						eventually."
+					</p>
+
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+						aliquet eros vel neque tincidunt, in ullamcorper arcu pharetra. Cras
+						at justo mattis lectus convallis elementum id id ante. Aenean
+						pharetra nisl sapien, vitae viverra tortor elementum eu. Donec
+						ullamcorper consectetur purus at commodo. Nunc nec dui tempus,
+						auctor quam sit amet, sodales est. Suspendisse velit erat, dignissim
+						vel molestie ut, maximus ac ex. elementum eu. Donec ullamcorper
+						consectetur purus at commodo. Nunc nec dui tempus, auctor quam sit
+						amet, sodales est. Suspendisse velit erat, dignissim vel molestie
+						ut, maximus ac ex.
+					</p>
+					<p>
+						Justo mattis lectus convallis elementum id id ante. Aenean pharetra
+						nisl sapien, vitae viverra tortor elementum eu. Donec ullamcorper
+						consectetur purus at commodo. Nunc nec dui tempus, auctor quam sit
+						amet, sodales est. Suspendisse velit erat, dignissim vel molestie
+						ut, maximus ac ex.
 					</p>
 				</div>
 			</div>
+			<div className="blockTitle">
+				<h1>Transpa Advantages</h1>
+			</div>
+			<div id="transpa-advantages">
+				<div id="transpa-advantages-left">
+					<ul>
+						<li>Detailed product information</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a
+						</p>
+						<li>Product improvements</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a
+						</p>
+						<li>Resale promotion</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a consectetur adipiscing elit
+						</p>
+						<li>External online cross-marketing</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a
+						</p>
+						<li>Blockchain technology</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a
+						</p>
+						<li>Certification</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a Mauris alesuada id lectus at luctus.
+							Nulla lobortis nulla urna, id elementum sapien hendrerit a
+						</p>
+					</ul>
+				</div>
+				<div id="transpa-advantages-right">
+					<ul>
+						<li>Customer binding</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a Mauris malesuada id lectus at luctus.
+							Nulla lobortis nulla urna, id elementum sapien hendrerit a
+						</p>
+						<li>Marketing</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a
+						</p>
+						<li>Internal cross-marketing</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a
+						</p>
+						<li>External offline cross-marketing</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a
+						</p>
+						<li>Anti-counterfeit</li>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+							malesuada id lectus at luctus. Nulla lobortis nulla urna, id
+							elementum sapien hendrerit a
+						</p>
+					</ul>
+				</div>
+			</div>
+
 			<div className="blockTitle">
 				<h1>Products</h1>
 			</div>
