@@ -124,7 +124,7 @@ export const addProducts = (
 	videoURL,
 	socialMediaURL,
 
-	location,
+	salesLocationIds,
 
 	relevantProductIds,
 
@@ -163,7 +163,7 @@ export const addProducts = (
 					videoURL,
 					socialMediaURL,
 
-					location,
+					salesLocationIds,
 
 					relevantProductIds,
 

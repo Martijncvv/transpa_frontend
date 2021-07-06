@@ -28,7 +28,6 @@ export default function AddProduct() {
 	const [videoURL, setVideoURL] = useState("");
 	const [socialMediaURL, setSocialMediaURL] = useState("");
 	const [location, setLocation] = useState("");
-	let relevantProductIds = [];
 
 	const [productImage_1, setProductImage_1] = useState("");
 	const [productImage_2, setProductImage_2] = useState("");
@@ -53,7 +52,6 @@ export default function AddProduct() {
 	const [answer_3d, setAnswer_3d] = useState("");
 
 	const locations = useSelector(selectLocations);
-	console.log("locations", locations);
 	const addLocationPopup = useSelector(selectAddLocationPopupState);
 	const companyProducts = useSelector(selectProductsData);
 
@@ -74,7 +72,7 @@ export default function AddProduct() {
 				videoURL,
 				socialMediaURL,
 
-				location,
+				salesLocationIds,
 
 				relevantProductIds,
 
@@ -104,6 +102,7 @@ export default function AddProduct() {
 		history.push("/dashboard");
 	}
 
+	let relevantProductIds = [];
 	const addRelevantProduct = (productId) => {
 		if (relevantProductIds.includes(productId)) {
 			relevantProductIds = relevantProductIds.filter(
@@ -114,6 +113,17 @@ export default function AddProduct() {
 		}
 
 		console.log("TEST relevantProducts", relevantProductIds);
+	};
+
+	let salesLocationIds = [];
+	const addLocations = (locationId) => {
+		if (salesLocationIds.includes(locationId)) {
+			salesLocationIds = salesLocationIds.filter((item) => item !== locationId);
+		} else {
+			salesLocationIds.push(locationId);
+		}
+
+		console.log("TEST salesLocationIds", salesLocationIds);
 	};
 
 	const addLocationPopupToggle = () => {
@@ -252,21 +262,24 @@ export default function AddProduct() {
 				<div id="add-product-middle">
 					<div>
 						<h2>Locations</h2>
-						{locations.map((location) => (
-							<div key={location.id}>
-								<label className="container">
-									Zipcode: {location.zipcode} Nr: {location.streetNumber}
-									<input
-										type="radio"
-										name="locationId"
-										id={location.id}
-										value={location.id}
-										onClick={() => setLocation(location.id)}
-									></input>
-									<span class="radioCheckmark"></span>
-								</label>
-							</div>
-						))}
+						<div class="add-product-locations-relevants">
+							{locations.map((location) => (
+								<div key={location.id}>
+									<label className="container">
+										Zipcode: {location.zipcode} Nr: {location.streetNumber}
+										<input
+											type="checkbox"
+											name="locationId"
+											id={location.id}
+											value={location.id}
+											onClick={() => addLocations(location.id)}
+										></input>
+										<span class="checkmark"></span>
+									</label>
+								</div>
+							))}
+						</div>
+
 						<button
 							className="addProductButton"
 							type="button"
@@ -278,21 +291,23 @@ export default function AddProduct() {
 
 					<div>
 						<h2>Relevant products</h2>
-						{companyProducts.map((product) => (
-							<div key={product.id}>
-								<label className="container">
-									{product.productName}
-									<input
-										type="checkbox"
-										name="relevantProduct"
-										id={product.id}
-										value={product.productName}
-										onClick={() => addRelevantProduct(product.id)}
-									></input>
-									<span class="checkmark"></span>
-								</label>
-							</div>
-						))}
+						<div class="add-product-locations-relevants">
+							{companyProducts.map((product) => (
+								<div key={product.id}>
+									<label className="container">
+										{product.productName}
+										<input
+											type="checkbox"
+											name="relevantProduct"
+											id={product.id}
+											value={product.productName}
+											onClick={() => addRelevantProduct(product.id)}
+										></input>
+										<span class="checkmark"></span>
+									</label>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 
