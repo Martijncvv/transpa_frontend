@@ -58,7 +58,7 @@ export default function ProductPage() {
 							<div id="product-images">
 								{productDetails.productImages.map((image) => (
 									<div key={image.id} className="product-image">
-										<img src={image.productImageURL} />
+										<img src={image.productImageURL} alt={image.id} />
 									</div>
 								))}
 							</div>

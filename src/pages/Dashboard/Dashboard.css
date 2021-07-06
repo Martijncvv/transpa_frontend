@@ -38,6 +38,7 @@
 	border: rgba(102, 205, 171, 0.979);
 	border-radius: 10px;
 	color: rgb(255, 255, 255);
+	/* z-index: -1; */
 }
 
 .dashboard-product-card-button:hover {
@@ -105,5 +106,5 @@
 #dashboard-product-qr-code {
 	position: relative;
 	left: 185px;
-	top: -205px;
+	top: -210px;
 }

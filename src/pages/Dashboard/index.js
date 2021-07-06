@@ -1,4 +1,4 @@
-import React, { useEffect, useState, PureComponent } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Bar } from "react-chartjs-2";
 
@@ -83,7 +83,6 @@ export default function Dashboard() {
 		});
 	});
 
-	// <Bar data={data} options={options} />;
 	console.log("feedbackData", feedbackData);
 	const data = {
 		labels: ["Red", "Blue", "Yellow"],
