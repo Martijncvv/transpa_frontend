@@ -44,7 +44,7 @@ export default function Dashboard() {
 	const feedbackData = [];
 
 	products.map((product) => {
-		product.questions.map((questionData) => {
+		product.questions?.map((questionData) => {
 			// feedbackData[questionData.id] = {
 			feedbackData.push({
 				question: questionData.question,
@@ -184,7 +184,16 @@ export default function Dashboard() {
 							))}{" "}
 						</div>
 
-						<QRCode value={qrLink} />
+						<div>
+							<img
+								id="dashboard-transpa-image"
+								src="https://i.ibb.co/W0Jkpv8/Transpa-Sticker.jpg"
+								alt="Transpa Logo"
+							/>
+							<div id="dashboard-product-qr-code">
+								<QRCode value={qrLink} />
+							</div>
+						</div>
 					</div>
 				</div>
 			)}
