@@ -54,6 +54,7 @@ export default function ProductPage() {
 							<h3>Company info</h3>
 							<p>{productDetails.company.detailedCompanyInfo}</p>
 
+							<h3>Company Images</h3>
 							<div id="product-images">
 								{productDetails.productImages.map((image) => (
 									<div key={image.id} className="product-image">
@@ -109,11 +110,6 @@ export default function ProductPage() {
 								</p>
 							</div>
 						))}
-						<h3>Social media</h3>
-						{/* {productDetails.socialMediaURL && (
-						
-						)} */}
-						<p>{productDetails.socialMediaURL}</p>
 						<h3>Relevant products</h3>
 						<div id="product-page-relevant-products">
 							{productDetails.relevantProduct.map((product) => (
@@ -126,6 +122,15 @@ export default function ProductPage() {
 									/>
 								</div>
 							))}
+						</div>
+						<div id="social-media-div">
+							<h3>Social media</h3>
+							<a href={productDetails.socialMediaURL} target="_blank">
+								<img
+									id="fb-logo"
+									src="https://www.verfvanniveau.nl/wp-content/uploads/2019/08/logo-social-fb-facebook-icon.png"
+								/>
+							</a>
 						</div>
 					</div>
 				</div>

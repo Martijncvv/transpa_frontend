@@ -144,3 +144,12 @@
 	justify-content: space-around;
 	flex-wrap: wrap;
 }
+#social-media-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#fb-logo {
+	width: 70px;
+}

@@ -107,21 +107,8 @@ export default function Dashboard() {
 			},
 		],
 	};
-	// let delayed;
+
 	const options = {
-		// animation: {
-		// 	onComplete: () => {
-		// 		delayed = true;
-		// 	},
-		// 	delay: (context) => {
-		// 		let delay = 300;
-		// 		if (context.type === "data" && context.mode === "default" && !delayed) {
-		// 			// delay = context.dataIndex * 300 + context.datasetIndex * 100;
-		// 			delay = context.dataIndex * 300 + context.datasetIndex * 100;
-		// 		}
-		// 		return delay;
-		// 	},
-		// },
 		scales: {
 			yAxes: [
 				{
