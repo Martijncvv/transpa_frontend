@@ -9,6 +9,11 @@
 	display: flex;
 	justify-content: space-evenly;
 }
+.addProduct-form-item {
+	margin: 10px 0;
+	display: flex;
+	align-items: center;
+}
 
 #add-product-top-left {
 	width: 20%;
@@ -57,6 +62,13 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+.add-product-locations-relevants {
+	overflow-y: scroll;
+	max-height: 170px;
+	width: 400px;
+	margin: 10px 0;
 }
 
 /* Hide the browser's default radio button */
