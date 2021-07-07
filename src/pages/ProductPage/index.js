@@ -79,93 +79,66 @@ export default function ProductPage() {
 												{questionData.question}
 											</p>
 
-											{
-												questionIdsAnswered[questionData.id] ? (
-													<div>
-														<p>Thank you for your feedback</p>
-													</div>
-												) : questionData.answers.some((answerData) =>
-														isNaN(answerData.answer)
-												  ) ? (
-													<form>
-														{questionData.answers.map((answer) => (
-															<div key={answer.id}>
-																<label className="container">
-																	<p>{answer.answer}</p>
-																	<input
-																		type="radio"
-																		name={questionData.id}
-																		id={answer.id}
-																		value={answer.id}
-																		onChange={(event) =>
-																			onVote(answer.id, questionData.id)
-																		}
-																	></input>
-																	<span
-																		className="radioCheckmark"
-																		style={{
-																			backgroundColor: productDetails.colour,
-																		}}
-																	></span>
-																</label>
-															</div>
-														))}
-													</form>
-												) : (
-													<div>
-														<div id="product-page-feedback-stars">
-															<div>⭐</div>
-															<div>⭐⭐⭐</div>
+											{questionIdsAnswered[questionData.id] ? (
+												<div>
+													<p>Thank you for your feedback</p>
+												</div>
+											) : questionData.answers.some((answerData) =>
+													isNaN(answerData.answer)
+											  ) ? (
+												<form>
+													{questionData.answers.map((answer) => (
+														<div key={answer.id}>
+															<label className="container">
+																<p>{answer.answer}</p>
+																<input
+																	type="radio"
+																	name={questionData.id}
+																	id={answer.id}
+																	value={answer.id}
+																	onChange={(event) =>
+																		onVote(answer.id, questionData.id)
+																	}
+																></input>
+																<span
+																	className="radioCheckmark"
+																	style={{
+																		backgroundColor: productDetails.colour,
+																	}}
+																></span>
+															</label>
 														</div>
-
-														<input
-															type="range"
-															id="product-page-slider"
-															min={Math.min(
-																...questionData.answers.map(
-																	(answerData) => answerData.id
-																)
-															)}
-															max={Math.max(
-																...questionData.answers.map(
-																	(answerData) => answerData.id
-																)
-															)}
-															onMouseUp={({ target: { value } }) => {
-																onVote(value, questionData.id);
-															}}
-															style={{
-																backgroundColor: productDetails.colour,
-															}}
-														/>
+													))}
+												</form>
+											) : (
+												<div>
+													<div id="product-page-feedback-stars">
+														<div>⭐</div>
+														<div>⭐⭐⭐</div>
 													</div>
-												)
 
-												// <form>
-												// 	{questionData.answers.map((answer) => (
-												// 		<div key={answer.id}>
-												// 			<label className="container">
-												// 				<p>{answer.answer}</p>
-												// 				<input
-												// 					type="radio"
-												// 					name={questionData.id}
-												// 					id={answer.id}
-												// 					value={answer.id}
-												// 					onChange={(event) =>
-												// 						onVote(answer.id, questionData.id)
-												// 					}
-												// 				></input>
-												// 				<span
-												// 					className="radioCheckmark"
-												// 					style={{
-												// 						backgroundColor: productDetails.colour,
-												// 					}}
-												// 				></span>
-												// 			</label>
-												// 		</div>
-												// 	))}
-												// </form>
-											}
+													<input
+														type="range"
+														id="product-page-slider"
+														min={Math.min(
+															...questionData.answers.map(
+																(answerData) => answerData.id
+															)
+														)}
+														max={Math.max(
+															...questionData.answers.map(
+																(answerData) => answerData.id
+															)
+														)}
+														onMouseUp={({ target: { value } }) => {
+															onVote(value, questionData.id);
+														}}
+														style={{
+															backgroundColor: productDetails.colour,
+														}}
+													/>
+												</div>
+											)}
 										</div>
 									))}
 								</div>
@@ -194,14 +167,22 @@ export default function ProductPage() {
 								</div>
 							))}
 						</div>
+						<h3>Social media</h3>
 						<div id="social-media-div">
-							<h3>Social media</h3>
-							<a href={productDetails.socialMediaURL} target="_blank">
+							<a
+								id="social-media-link"
+								href={productDetails.socialMediaURL}
+								target="_blank"
+							>
 								<img
-									id="fb-logo"
-									src="https://www.verfvanniveau.nl/wp-content/uploads/2019/08/logo-social-fb-facebook-icon.png"
+									className="social-media-logo"
+									src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png"
 								/>
 							</a>
+							<img
+								className="social-media-logo"
+								src="https://cdn11.bigcommerce.com/s-da4bb/product_images/uploaded_images/weblogo.png"
+							/>
 						</div>
 					</div>
 				</div>
