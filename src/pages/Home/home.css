@@ -11,6 +11,10 @@
 h1 {
 	font-size: 45px;
 }
+h4 {
+	font-size: 25px;
+	font-weight: 600;
+}
 
 #home-main-title {
 	display: flex;

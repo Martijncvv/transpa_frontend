@@ -173,10 +173,13 @@
 }
 #social-media-div {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 }
-#fb-logo {
-	width: 70px;
+#social-media-link {
+	display: flex;
+	justify-content: center;
+}
+.social-media-logo {
+	height: 70px;
 }
