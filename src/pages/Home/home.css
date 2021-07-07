@@ -55,7 +55,14 @@ h1 {
 	flex-wrap: wrap;
 	background-color: rgba(96, 178, 230, 0.219);
 	width: 100%;
-	padding: 5% 0;
+	padding: 0 0 5% 0;
+}
+
+.productCards {
+	display: flex;
+	justify-content: center;
+	background-color: rgba(96, 178, 230, 0.219);
+	width: 100%;
 }
 
 .blockTitle {

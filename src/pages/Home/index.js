@@ -155,7 +155,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="blockTitle">
+			<div className="blockTitle productCards">
 				<h1>Products</h1>
 			</div>
 			{!isFetching && (
