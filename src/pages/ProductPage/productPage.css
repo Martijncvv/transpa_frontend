@@ -76,6 +76,14 @@
 	font-weight: 600;
 }
 
+#product-page-feedback-stars {
+	display: flex;
+	justify-content: space-between;
+}
+#product-page-slider {
+	width: 100%;
+}
+
 .container {
 	display: block;
 	position: relative;

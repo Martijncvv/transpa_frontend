@@ -22,16 +22,24 @@ export default function AddProduct() {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const [productName, setProductName] = useState("");
-	const [mainProductImageURL, setMainProductImageURL] = useState("");
+	const [mainProductImageURL, setMainProductImageURL] = useState(
+		"https://polishlinux.org/wp-content/uploads/2017/11/Preview-2-icon.png"
+	);
 	const [colour, setColour] = useState("");
 	const [detailedProductInfo, setDetailedProductInfo] = useState("");
 	const [videoURL, setVideoURL] = useState("");
 	const [socialMediaURL, setSocialMediaURL] = useState("");
-	const [location, setLocation] = useState("");
+	// const [location, setLocation] = useState("");
 
-	const [productImage_1, setProductImage_1] = useState("");
-	const [productImage_2, setProductImage_2] = useState("");
-	const [productImage_3, setProductImage_3] = useState("");
+	const [productImage_1, setProductImage_1] = useState(
+		"https://polishlinux.org/wp-content/uploads/2017/11/Preview-2-icon.png"
+	);
+	const [productImage_2, setProductImage_2] = useState(
+		"https://polishlinux.org/wp-content/uploads/2017/11/Preview-2-icon.png"
+	);
+	const [productImage_3, setProductImage_3] = useState(
+		"https://polishlinux.org/wp-content/uploads/2017/11/Preview-2-icon.png"
+	);
 
 	const [question_1, setQuestion_1] = useState("");
 	const [question_2, setQuestion_2] = useState("");

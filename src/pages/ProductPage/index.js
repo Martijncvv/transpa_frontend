@@ -12,7 +12,6 @@ import "./productPage.css";
 export default function ProductPage() {
 	const dispatch = useDispatch();
 	const [questionIdsAnswered, setQuestionIdsAnswered] = useState({});
-	console.log("questionIdsAnswered", questionIdsAnswered);
 
 	const { id } = useParams();
 	const productDetails = useSelector(selectProductsDetails);
@@ -27,12 +26,11 @@ export default function ProductPage() {
 	}, [dispatch, useParams(), questionIdsAnswered]);
 
 	function onVote(answerId, questionId) {
-		setQuestionIdsAnswered({ ...questionIdsAnswered, [questionId]: true });
-
-		dispatch(addVote(answerId));
-		console.log(" answerId: ", answerId);
-
-		console.log("questionIdsAnswered", questionIdsAnswered);
+		if (answerId) {
+			dispatch(addVote(answerId));
+			setQuestionIdsAnswered({ ...questionIdsAnswered, [questionId]: true });
+			console.log("answerId", answerId);
+		}
 	}
 
 	return (
@@ -81,36 +79,95 @@ export default function ProductPage() {
 												{questionData.question}
 											</p>
 
-											{questionIdsAnswered[questionData.id] ? (
-												<div>
-													<p>Thank you for your feedback</p>
-												</div>
-											) : (
-												<form>
-													{questionData.answers.map((answer) => (
-														<div key={answer.id}>
-															<label className="container">
-																<p>{answer.answer}</p>
-																<input
-																	type="radio"
-																	name={questionData.id}
-																	id={answer.id}
-																	value={answer.id}
-																	onChange={(event) =>
-																		onVote(answer.id, questionData.id)
-																	}
-																></input>
-																<span
-																	className="radioCheckmark"
-																	style={{
-																		backgroundColor: productDetails.colour,
-																	}}
-																></span>
-															</label>
+											{
+												questionIdsAnswered[questionData.id] ? (
+													<div>
+														<p>Thank you for your feedback</p>
+													</div>
+												) : questionData.answers.some((answerData) =>
+														isNaN(answerData.answer)
+												  ) ? (
+													<form>
+														{questionData.answers.map((answer) => (
+															<div key={answer.id}>
+																<label className="container">
+																	<p>{answer.answer}</p>
+																	<input
+																		type="radio"
+																		name={questionData.id}
+																		id={answer.id}
+																		value={answer.id}
+																		onChange={(event) =>
+																			onVote(answer.id, questionData.id)
+																		}
+																	></input>
+																	<span
+																		className="radioCheckmark"
+																		style={{
+																			backgroundColor: productDetails.colour,
+																		}}
+																	></span>
+																</label>
+															</div>
+														))}
+													</form>
+												) : (
+													<div>
+														<div id="product-page-feedback-stars">
+															<div>⭐</div>
+															<div>⭐⭐⭐</div>
 														</div>
-													))}
-												</form>
-											)}
+
+														<input
+															type="range"
+															id="product-page-slider"
+															min={Math.min(
+																...questionData.answers.map(
+																	(answerData) => answerData.id
+																)
+															)}
+															max={Math.max(
+																...questionData.answers.map(
+																	(answerData) => answerData.id
+																)
+															)}
+															// value="50"
+															// onChange={(event) =>
+															// 	onVote(answer.id, questionData.id)
+															// }
+															// onMouseUp={({ target: { value: radius } }) => {
+															onMouseUp={({ target: { value } }) => {
+																onVote(value, questionData.id);
+															}}
+														/>
+													</div>
+												)
+
+												// <form>
+												// 	{questionData.answers.map((answer) => (
+												// 		<div key={answer.id}>
+												// 			<label className="container">
+												// 				<p>{answer.answer}</p>
+												// 				<input
+												// 					type="radio"
+												// 					name={questionData.id}
+												// 					id={answer.id}
+												// 					value={answer.id}
+												// 					onChange={(event) =>
+												// 						onVote(answer.id, questionData.id)
+												// 					}
+												// 				></input>
+												// 				<span
+												// 					className="radioCheckmark"
+												// 					style={{
+												// 						backgroundColor: productDetails.colour,
+												// 					}}
+												// 				></span>
+												// 			</label>
+												// 		</div>
+												// 	))}
+												// </form>
+											}
 										</div>
 									))}
 								</div>
