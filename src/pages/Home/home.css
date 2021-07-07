@@ -49,18 +49,13 @@ h1 {
 	padding: 0 30px;
 }
 
-#home-explanation {
-	width: 80%;
-	padding: 0 30px;
-}
-
 #productCards {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
 	background-color: rgba(96, 178, 230, 0.219);
 	width: 100%;
-	padding: 20px;
+	padding: 5% 0;
 }
 
 .blockTitle {
