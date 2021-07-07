@@ -131,13 +131,11 @@ export default function ProductPage() {
 																	(answerData) => answerData.id
 																)
 															)}
-															// value="50"
-															// onChange={(event) =>
-															// 	onVote(answer.id, questionData.id)
-															// }
-															// onMouseUp={({ target: { value: radius } }) => {
 															onMouseUp={({ target: { value } }) => {
 																onVote(value, questionData.id);
+															}}
+															style={{
+																backgroundColor: productDetails.colour,
 															}}
 														/>
 													</div>
