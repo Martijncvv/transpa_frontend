@@ -1,5 +1,8 @@
 # Transpa
-A platform where SMB's can create pages for products they sell to increase product transparency; Connecting business and customer by communicating through the product. A company can generate a product QR code in their dashboard which they can stick on their products to let customers know they provide additional product information and that they are part of the Transpa ecosystem
+A platform where SMB's can create pages for products they sell to increase product transparency; Connecting business and customer by communicating through the product. A company can generate a product QR code in their dashboard which they can stick on their products to let customers know they provide additional product information and that they are part of the Transpa ecosystem.
+<p align="center"> 
+  <img src="src/images/Transpa Facebook banner.jpeg" alt="Website UI top" width="800" >
+</p>
 
 By Martijn van Veen
 
