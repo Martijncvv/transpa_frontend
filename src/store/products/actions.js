@@ -49,7 +49,6 @@ export const fetchProductDetails = (id) => {
 			const response = await axios.get(
 				`${apiUrl}/products/productDetails/${id}`
 			);
-			console.log(`FetchProduct details: ${id}:`, response);
 			dispatch(fetchProductDetailssSuccess(response.data.product));
 			dispatch(fetchingDone());
 		} catch (e) {

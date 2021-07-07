@@ -154,9 +154,8 @@ export default function Dashboard() {
 							</div>
 						))}
 					</div>
-
+					<h1>QR-Codes</h1>
 					<div id="dashboard-qrcodes">
-						<h2>QR-Codes</h2>
 						<div id="dashboard-qrcode-nav">
 							{products.map((product) => (
 								<div key={product.id}>
