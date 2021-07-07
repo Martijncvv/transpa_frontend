@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -11,6 +11,8 @@ import "./productPage.css";
 
 export default function ProductPage() {
 	const dispatch = useDispatch();
+	const [questionIdsAnswered, setQuestionIdsAnswered] = useState({});
+	console.log("questionIdsAnswered", questionIdsAnswered);
 
 	const { id } = useParams();
 	const productDetails = useSelector(selectProductsDetails);
@@ -22,16 +24,19 @@ export default function ProductPage() {
 
 	useEffect(() => {
 		dispatch(fetchProductDetails(id));
-	}, [dispatch, useParams()]);
+	}, [dispatch, useParams(), questionIdsAnswered]);
 
-	function onVote(answerId) {
+	function onVote(answerId, questionId) {
+		setQuestionIdsAnswered({ ...questionIdsAnswered, [questionId]: true });
+
 		dispatch(addVote(answerId));
 		console.log(" answerId: ", answerId);
+
+		console.log("questionIdsAnswered", questionIdsAnswered);
 	}
 
 	return (
 		<div>
-			{/* <h1 style={{ color: }}>Theme colour</h1>s */}
 			{productDetails.company && (
 				<div
 					id="main-product-page"
@@ -72,29 +77,40 @@ export default function ProductPage() {
 								<div id="product-page-questions">
 									{questionsData.map((questionData) => (
 										<div key={questionData.id}>
-											<p>{questionData.question}</p>
-											<form>
-												{questionData.answers.map((answer) => (
-													<div key={answer.id}>
-														<label className="container">
-															<p>{answer.answer}</p>
-															<input
-																type="radio"
-																name={questionData.id}
-																id={answer.id}
-																value={answer.id}
-																onChange={(event) => onVote(answer.id)}
-															></input>
-															<span
-																className="radioCheckmark"
-																style={{
-																	backgroundColor: productDetails.colour,
-																}}
-															></span>
-														</label>
-													</div>
-												))}
-											</form>
+											<p className="productPage-question">
+												{questionData.question}
+											</p>
+
+											{questionIdsAnswered[questionData.id] ? (
+												<div>
+													<p>Thank you for your feedback</p>
+												</div>
+											) : (
+												<form>
+													{questionData.answers.map((answer) => (
+														<div key={answer.id}>
+															<label className="container">
+																<p>{answer.answer}</p>
+																<input
+																	type="radio"
+																	name={questionData.id}
+																	id={answer.id}
+																	value={answer.id}
+																	onChange={(event) =>
+																		onVote(answer.id, questionData.id)
+																	}
+																></input>
+																<span
+																	className="radioCheckmark"
+																	style={{
+																		backgroundColor: productDetails.colour,
+																	}}
+																></span>
+															</label>
+														</div>
+													))}
+												</form>
+											)}
 										</div>
 									))}
 								</div>
