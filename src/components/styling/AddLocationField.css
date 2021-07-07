@@ -11,19 +11,19 @@
 	font-weight: 600;
 	text-align: center;
 
-	background-color: rgb(53, 169, 180);
-	border: rgba(102, 205, 171, 0.979);
+	background-color: rgb(96, 178, 230);
+	border: rgba(96, 178, 230, 0.979);
 	border-radius: 5px;
 	color: rgb(255, 255, 255);
 }
 
 #add-location-button:hover {
 	color: rgb(231, 231, 231);
-	box-shadow: 0 1px 2px 0 rgba(53, 169, 180, 0.555),
+	box-shadow: 0 1px 2px 0 rgba(96, 178, 230, 0.555),
 		0 2px 5px 0 rgba(118, 116, 141, 0.281);
 }
 #add-location-button:active {
 	color: rgb(187, 187, 187);
-	box-shadow: 0 1px 2px 0 rgba(53, 169, 180, 0.555),
+	box-shadow: 0 1px 2px 0 rgba(96, 178, 230, 0.555),
 		0 2px 5px 0 rgba(118, 116, 141, 0.281);
 }

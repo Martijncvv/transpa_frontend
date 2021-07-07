@@ -17,11 +17,11 @@
 	background: #fff;
 	border-radius: 4px;
 	padding: 0px 20px 50px;
-	border: 1px solid rgb(118, 190, 190);
+	border: 1px solid rgb(96, 178, 230);
 	overflow: auto;
 
 	border-radius: 10px;
-	box-shadow: 0 4px 8px 0 rgba(143, 189, 189, 0.555),
+	box-shadow: 0 4px 8px 0 rgba(96, 178, 230, 0.555),
 		0 6px 20px 0 rgba(118, 116, 141, 0.281);
 	overflow: hidden;
 	z-index: -1;
@@ -42,7 +42,7 @@
 	border-radius: 50%;
 	line-height: 25px;
 	text-align: center;
-	border: 1px solid rgb(118, 190, 190);
+	border: 1px solid rgb(96, 178, 230);
 	font-size: 25px;
 }
 .close-icon:hover {

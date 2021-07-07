@@ -1,6 +1,6 @@
 import "./styling/NavBar.css";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginPopupOn, registerPopupOn } from "../store/appStates/actions";
 import { logOut } from "../store/users/actions";
@@ -9,20 +9,23 @@ import { selectUser, selectToken } from "../store/users/selectors";
 
 export default function NavBar() {
 	const dispatch = useDispatch();
-
+	const history = useHistory();
 	const user = useSelector(selectUser);
 	const token = useSelector(selectToken);
 
 	const loginPopupToggle = () => {
+		history.push("/");
 		dispatch(loginPopupOn());
 	};
 
 	const registerPopupToggle = () => {
+		history.push("/");
 		dispatch(registerPopupOn());
 	};
 
 	const logoutUser = () => {
 		dispatch(logOut());
+		history.push("/");
 	};
 
 	return (
