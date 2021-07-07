@@ -149,9 +149,22 @@ export default function ProductPage() {
 						<h3>Sales locations</h3>
 						{locations.map((location) => (
 							<div key={location.id}>
-								<p>
-									- {location.zipcode} {location.streetNumber}
-								</p>
+								<a
+									className="location-link"
+									href={
+										"https://www.google.com/maps/search/" + location.zipcode
+									}
+									target="_blank"
+								>
+									<p>
+										{" "}
+										- {location.zipcode} {location.streetNumber}
+									</p>
+									<img
+										className="location-maps-logo"
+										src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Google_Maps_icon_%282015-2020%29.svg/1200px-Google_Maps_icon_%282015-2020%29.svg.png"
+									/>
+								</a>
 							</div>
 						))}
 						<h3>Relevant products</h3>
