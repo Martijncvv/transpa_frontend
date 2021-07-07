@@ -35,7 +35,7 @@
 	text-align: center;
 
 	background-color: rgb(211, 211, 211);
-	border: rgba(102, 205, 171, 0.979);
+	border: rgba(96, 178, 230, 0.979);
 	border-radius: 10px;
 	color: rgb(255, 255, 255);
 	/* z-index: -1; */
@@ -44,12 +44,12 @@
 .dashboard-product-card-button:hover {
 	color: rgb(231, 231, 231);
 	background-color: rgb(192, 0, 0);
-	box-shadow: 0 1px 2px 0 rgba(53, 169, 180, 0.555),
+	box-shadow: 0 1px 2px 0 rgba(96, 178, 230, 0.555),
 		0 2px 5px 0 rgba(118, 116, 141, 0.281);
 }
 .dashboard-product-card-button:active {
 	color: rgb(187, 187, 187);
-	box-shadow: 0 1px 2px 0 rgba(53, 169, 180, 0.555),
+	box-shadow: 0 1px 2px 0 rgba(96, 178, 230, 0.555),
 		0 2px 5px 0 rgba(118, 116, 141, 0.281);
 }
 
@@ -81,30 +81,30 @@
 	font-weight: 600;
 	text-align: center;
 
-	background-color: rgb(53, 169, 180);
-	border: rgba(102, 205, 171, 0.979);
+	background-color: rgb(96, 178, 230);
+	border: rgba(96, 178, 230, 0.979);
 	border-radius: 2px;
 	color: rgb(255, 255, 255);
 }
 
 .dashboard-qrcode-nav-button:hover {
 	color: rgb(231, 231, 231);
-	background-color: rgb(53, 169, 180);
-	box-shadow: 0 1px 2px 0 rgba(53, 169, 180, 0.555),
+	background-color: rgb(96, 178, 230);
+	box-shadow: 0 1px 2px 0 rgba(96, 178, 230, 0.555),
 		0 2px 5px 0 rgba(118, 116, 141, 0.281);
 }
 .dashboard-qrcode-nav-button:active {
 	color: rgb(187, 187, 187);
-	box-shadow: 0 1px 2px 0 rgba(53, 169, 180, 0.555),
+	box-shadow: 0 1px 2px 0 rgba(96, 178, 230, 0.555),
 		0 2px 5px 0 rgba(118, 116, 141, 0.281);
 }
 
 #dashboard-transpa-image {
-	height: 250px;
+	height: 195px;
 }
 
 #dashboard-product-qr-code {
 	position: relative;
-	left: 185px;
-	top: -210px;
+	left: 193px;
+	top: -181px;
 }

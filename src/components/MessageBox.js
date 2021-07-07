@@ -14,7 +14,7 @@ export default function MessageBox() {
 
 	let colour = "rgb(230, 88, 88)";
 	if (message.variant === "success") {
-		colour = "rgb(53, 169, 180)";
+		colour = "rgb(96, 178, 230)";
 	}
 
 	return (

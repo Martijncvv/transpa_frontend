@@ -26,7 +26,7 @@ h1 {
 	justify-content: space-around;
 	padding: 70px 0px;
 
-	background-color: rgba(53, 169, 180, 0.219);
+	background-color: rgba(96, 178, 230, 0.219);
 }
 
 #home-image {
@@ -58,7 +58,7 @@ h1 {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
-	background-color: rgba(53, 169, 180, 0.219);
+	background-color: rgba(96, 178, 230, 0.219);
 	width: 100%;
 	padding: 20px;
 }
