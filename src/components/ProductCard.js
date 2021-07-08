@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styling/ProductCard.css";
+import "./styling/ProductCardMobile.css";
 
 export default function ProductCard(props) {
 	return (

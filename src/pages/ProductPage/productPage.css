@@ -55,10 +55,15 @@
 	margin-bottom: 30px;
 }
 
-.product-image {
+.product-image-div {
 	display: flex;
 	justify-content: space-evenly;
 	width: 80%;
+}
+
+.product-page-video {
+	width: 420px;
+	height: 315px;
 }
 
 #product-page-feedback {
@@ -114,7 +119,6 @@
 	user-select: none;
 }
 
-/* Hide the browser's default radio button */
 .container input {
 	position: absolute;
 	opacity: 0;
@@ -123,7 +127,6 @@
 	width: 0;
 }
 
-/* Create a custom radio button */
 .radioCheckmark {
 	position: absolute;
 	top: 0;
@@ -134,29 +137,24 @@
 	border-radius: 50%;
 }
 
-/* On mouse-over, add a grey background color */
 .container:hover input ~ .radioCheckmark {
 	background-color: #ccc;
 }
 
-/* When the radio button is checked, add a blue background */
 .container input:checked ~ .radioCheckmark {
 	background-color: rgb(96, 178, 230);
 }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
 .radioCheckmark:after {
 	content: "";
 	position: absolute;
 	display: none;
 }
 
-/* Show the indicator (dot/circle) when checked */
 .container input:checked ~ .radioCheckmark:after {
 	display: block;
 }
 
-/* Style the indicator (dot/circle) */
 .container .radioCheckmark:after {
 	top: 9px;
 	left: 9px;
@@ -166,22 +164,11 @@
 	background: white;
 }
 
-#product-page-relevant-products {
+#product-page-company-contact {
 	display: flex;
 	justify-content: space-around;
-	flex-wrap: wrap;
-}
-#social-media-div {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-}
-#social-media-link {
-	display: flex;
-	justify-content: center;
-}
-.social-media-logo {
-	height: 70px;
+	width: 70%;
+	margin-bottom: 20px;
 }
 
 .product-page-locations-row {
@@ -200,4 +187,23 @@
 .location-maps-logo {
 	height: 25px;
 	margin-left: 30px;
+}
+
+#social-media-div {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+#social-media-link {
+	display: flex;
+	justify-content: center;
+}
+.social-media-logo {
+	height: 70px;
+}
+
+#product-page-relevant-products {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }
