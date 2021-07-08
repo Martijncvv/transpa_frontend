@@ -19,6 +19,7 @@ const QRCode = require("qrcode.react");
 export default function Dashboard() {
 	const dispatch = useDispatch();
 	const [qrLink, setQrLink] = useState("");
+	const [activeQrTab, setActiveQrTab] = useState("");
 
 	const isFetching = useSelector(selectIsFetching);
 	const products = useSelector(selectProductsData);
@@ -34,6 +35,7 @@ export default function Dashboard() {
 	}
 
 	function setQrCodeLink(productId) {
+		setActiveQrTab(productId);
 		setQrLink(
 			`https://transpa-products.herokuapp.com/productDetails/${productId}`
 		);
@@ -133,6 +135,10 @@ export default function Dashboard() {
 							{products.map((product) => (
 								<div key={product.id}>
 									<button
+										style={{
+											backgroundColor:
+												activeQrTab == product.id && "rgb(9, 144, 228)",
+										}}
 										className="dashboard-qrcode-nav-button"
 										onClick={() => setQrCodeLink(product.id)}
 									>
