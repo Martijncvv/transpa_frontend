@@ -29,7 +29,9 @@ export default function AddProduct() {
 	const [detailedProductInfo, setDetailedProductInfo] = useState("");
 	const [videoURL, setVideoURL] = useState("");
 	const [socialMediaURL, setSocialMediaURL] = useState("");
-	// const [location, setLocation] = useState("");
+
+	const [salesLocationIds, setSalesLocationIds] = useState([]);
+	const [relevantProductIds, setRelevantProductIds] = useState([]);
 
 	const [productImage_1, setProductImage_1] = useState(
 		"https://polishlinux.org/wp-content/uploads/2017/11/Preview-2-icon.png"
@@ -81,7 +83,6 @@ export default function AddProduct() {
 				socialMediaURL,
 
 				salesLocationIds,
-
 				relevantProductIds,
 
 				productImage_1,
@@ -110,28 +111,36 @@ export default function AddProduct() {
 		history.push("/dashboard");
 	}
 
-	let relevantProductIds = [];
-	const addRelevantProduct = (productId) => {
-		if (relevantProductIds.includes(productId)) {
-			relevantProductIds = relevantProductIds.filter(
-				(item) => item !== productId
-			);
-		} else {
-			relevantProductIds.push(productId);
-		}
-
-		console.log("TEST relevantProducts", relevantProductIds);
-	};
-
-	let salesLocationIds = [];
 	const addLocations = (locationId) => {
 		if (salesLocationIds.includes(locationId)) {
-			salesLocationIds = salesLocationIds.filter((item) => item !== locationId);
+			const newSalesLocationIds = salesLocationIds.filter(
+				(item) => item !== locationId
+			);
+
+			setSalesLocationIds([...newSalesLocationIds]);
 		} else {
-			salesLocationIds.push(locationId);
+			setSalesLocationIds((salesLocationIds) => [
+				...salesLocationIds,
+				locationId,
+			]);
+		}
+		console.log("SalesLocationIds", salesLocationIds);
+	};
+
+	const addRelevantProduct = (productId) => {
+		if (relevantProductIds.includes(productId)) {
+			const newRelevantProductIds = relevantProductIds.filter(
+				(item) => item !== productId
+			);
+			setRelevantProductIds([...newRelevantProductIds]);
+		} else {
+			setRelevantProductIds((relevantProductIds) => [
+				...relevantProductIds,
+				productId,
+			]);
 		}
 
-		console.log("TEST salesLocationIds", salesLocationIds);
+		console.log("RelevantProducts", relevantProductIds);
 	};
 
 	const addLocationPopupToggle = () => {
@@ -270,7 +279,7 @@ export default function AddProduct() {
 				<div id="add-product-middle">
 					<div>
 						<h2>Locations</h2>
-						<div class="add-product-locations-relevants">
+						<div className="add-product-locations-relevants">
 							{locations.map((location) => (
 								<div key={location.id}>
 									<label className="container">
@@ -282,7 +291,7 @@ export default function AddProduct() {
 											value={location.id}
 											onClick={() => addLocations(location.id)}
 										></input>
-										<span class="checkmark"></span>
+										<span className="checkmark"></span>
 									</label>
 								</div>
 							))}
@@ -299,7 +308,7 @@ export default function AddProduct() {
 
 					<div>
 						<h2>Relevant products</h2>
-						<div class="add-product-locations-relevants">
+						<div className="add-product-locations-relevants">
 							{companyProducts.map((product) => (
 								<div key={product.id}>
 									<label className="container">
@@ -311,7 +320,7 @@ export default function AddProduct() {
 											value={product.productName}
 											onClick={() => addRelevantProduct(product.id)}
 										></input>
-										<span class="checkmark"></span>
+										<span className="checkmark"></span>
 									</label>
 								</div>
 							))}

@@ -63,9 +63,6 @@
 	width: 30%;
 }
 
-#dashboard-qrcodes {
-}
-
 #dashboard-qrcode-nav {
 	display: flex;
 	margin-bottom: 20px;
@@ -97,6 +94,9 @@
 	color: rgb(187, 187, 187);
 	box-shadow: 0 1px 2px 0 rgba(96, 178, 230, 0.555),
 		0 2px 5px 0 rgba(118, 116, 141, 0.281);
+}
+#dashboard-transpa-qr-sticker {
+	width: 500px;
 }
 
 #dashboard-transpa-image {
