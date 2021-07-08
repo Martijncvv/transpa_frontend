@@ -8,6 +8,7 @@ import { selectProductsDetails } from "../../store/products/selectors";
 import ProductCard from "../../components/ProductCard";
 
 import "./productPage.css";
+import "./productPageMobile.css";
 
 export default function ProductPage() {
 	const dispatch = useDispatch();
@@ -60,13 +61,17 @@ export default function ProductPage() {
 							<h3>Company Images</h3>
 							<div id="product-images">
 								{productDetails.productImages.map((image) => (
-									<div key={image.id} className="product-image">
-										<img src={image.productImageURL} alt={image.id} />
+									<div key={image.id} className="product-image-div">
+										<img
+											className="product-image"
+											src={image.productImageURL}
+											alt={image.id}
+										/>
 									</div>
 								))}
 							</div>
 							{videoURL && (
-								<iframe width="420" height="315" src={videoURL}></iframe>
+								<iframe className="product-page-video" src={videoURL}></iframe>
 							)}
 						</div>
 						{productDetails.questions.length ? (
@@ -146,28 +151,65 @@ export default function ProductPage() {
 						) : (
 							""
 						)}
-						<h3>Sales locations</h3>
-						{locations.map((location) => (
-							<div key={location.id} className="product-page-locations-row">
-								<a
-									className="location-link"
-									href={
-										"https://www.google.com/maps/search/" + location.zipcode
-									}
-									target="_blank"
-								>
-									- {location.zipcode} {location.streetNumber}
-									<img
-										className="location-maps-logo"
-										src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Google_Maps_icon_%282015-2020%29.svg/1200px-Google_Maps_icon_%282015-2020%29.svg.png"
-									/>
-								</a>
+						<div id="product-page-company-contact">
+							<div>
+								{" "}
+								<h3>Sales locations</h3>
+								<div id="product-page-sales-locations">
+									{locations.map((location) => (
+										<div
+											key={location.id}
+											className="product-page-locations-row"
+										>
+											<a
+												className="location-link"
+												href={
+													"https://www.google.com/maps/search/" +
+													location.zipcode
+												}
+												target="_blank"
+											>
+												- {location.zipcode} {location.streetNumber}
+												<img
+													className="location-maps-logo"
+													src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Google_Maps_icon_%282015-2020%29.svg/1200px-Google_Maps_icon_%282015-2020%29.svg.png"
+												/>
+											</a>
+										</div>
+									))}
+								</div>
 							</div>
-						))}
+							<div>
+								{" "}
+								<h3>Social media</h3>
+								<div id="social-media-div">
+									<a
+										id="social-media-link"
+										href={productDetails.socialMediaURL}
+										target="_blank"
+									>
+										<img
+											className="social-media-logo"
+											src="https://www.verfvanniveau.nl/wp-content/uploads/2019/08/logo-social-fb-facebook-icon.png"
+										/>
+									</a>
+									<a
+										id="social-media-link"
+										href={productDetails.socialMediaURL}
+										target="_blank"
+									>
+										<img
+											className="social-media-logo"
+											src="https://www.jaspersomsen.com/wp-spullies/uploads/2017/03/instagram-Logo-PNG-Transparent-Background-download.png"
+										/>
+									</a>
+								</div>
+							</div>
+						</div>
 						<h3>Relevant products</h3>
 						<div id="product-page-relevant-products">
 							{productDetails.relevantProduct.map((product) => (
-								<div key={product.id}>
+								<div key={product.id} className="product-page-productCard">
 									<ProductCard
 										id={product.id}
 										colour={product.colour}
@@ -176,29 +218,6 @@ export default function ProductPage() {
 									/>
 								</div>
 							))}
-						</div>
-						<h3>Social media</h3>
-						<div id="social-media-div">
-							<a
-								id="social-media-link"
-								href={productDetails.socialMediaURL}
-								target="_blank"
-							>
-								<img
-									className="social-media-logo"
-									src="https://www.verfvanniveau.nl/wp-content/uploads/2019/08/logo-social-fb-facebook-icon.png"
-								/>
-							</a>
-							<a
-								id="social-media-link"
-								href={productDetails.socialMediaURL}
-								target="_blank"
-							>
-								<img
-									className="social-media-logo"
-									src="https://www.jaspersomsen.com/wp-spullies/uploads/2017/03/instagram-Logo-PNG-Transparent-Background-download.png"
-								/>
-							</a>
 						</div>
 					</div>
 				</div>

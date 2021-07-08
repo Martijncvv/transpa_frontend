@@ -24,7 +24,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<NavBar />
+			{window.screen.width > 1000 && <NavBar />}
 			<MessageBox />
 			<div>
 				{loginPopupState && <PopupField content={<LoginField />} />}
@@ -36,7 +36,7 @@ function App() {
 				<Route path="/productDetails/:id" component={ProductPage} />
 				<Route path="/addProduct" component={AddProduct} />
 			</Switch>
-			<div id="footer"></div>
+			{window.screen.width > 1000 && <div id="footer"></div>}
 		</div>
 	);
 }

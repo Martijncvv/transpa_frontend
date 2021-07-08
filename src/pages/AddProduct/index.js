@@ -143,7 +143,7 @@ export default function AddProduct() {
 			<div>
 				{addLocationPopup && <PopupField content={<AddLocationField />} />}
 			</div>
-			<h1>Add product</h1>
+			<h1>Add Product</h1>
 
 			<form>
 				<div id="add-product-top">

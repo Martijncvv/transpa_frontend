@@ -1,0 +1,63 @@
+@media only screen and (max-width: 1000px) {
+	#productCard {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		margin: 30px;
+		padding: 30px 10px 65px;
+
+		width: 90%;
+		height: auto;
+
+		background-color: rgb(255, 255, 255);
+		border-radius: 10px;
+		box-shadow: 0 4px 8px 0 rgba(96, 178, 230, 0.555),
+			0 6px 20px 0 rgba(118, 116, 141, 0.281);
+	}
+
+	img {
+		max-height: 70%;
+		max-width: 70%;
+		width: auto;
+		object-fit: contain;
+	}
+
+	h2 {
+		margin: 30px 0 0 0;
+	}
+
+	.productCardBottom {
+		display: flex;
+		flex-direction: column;
+
+		align-items: center;
+		height: 40%;
+	}
+
+	.productCardButton {
+		height: 30px;
+		width: 70px;
+
+		text-transform: capitalize;
+		font-size: 15px;
+		font-weight: 600;
+		text-align: center;
+
+		background-color: rgb(96, 178, 230);
+		border: rgba(96, 178, 230, 0.979);
+		border-radius: 5px;
+		color: rgb(255, 255, 255);
+	}
+
+	.productCardButton:hover {
+		color: rgb(231, 231, 231);
+		box-shadow: 0 1px 2px 0 rgba(96, 178, 230, 0.555),
+			0 2px 5px 0 rgba(118, 116, 141, 0.281);
+	}
+	.productCardButton:active {
+		color: rgb(187, 187, 187);
+		box-shadow: 0 1px 2px 0 rgba(96, 178, 230, 0.555),
+			0 2px 5px 0 rgba(118, 116, 141, 0.281);
+	}
+}
