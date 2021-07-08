@@ -1,6 +1,7 @@
 import "./styling/App.css";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
@@ -17,10 +18,16 @@ import {
 	selectLoginPopupState,
 	selectRegisterPopupState,
 } from "./store/appStates/selectors";
+import { getUserWithStoredToken } from "./store/users/actions";
 
 function App() {
+	const dispatch = useDispatch();
 	const loginPopupState = useSelector(selectLoginPopupState);
 	const registerPopupState = useSelector(selectRegisterPopupState);
+
+	useEffect(() => {
+		dispatch(getUserWithStoredToken());
+	}, [dispatch]);
 
 	return (
 		<div className="App">

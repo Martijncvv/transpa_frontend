@@ -125,7 +125,6 @@ export const addProducts = (
 	socialMediaURL,
 
 	salesLocationIds,
-
 	relevantProductIds,
 
 	productImage_1,
@@ -151,6 +150,8 @@ export const addProducts = (
 ) => {
 	return async (dispatch, getState) => {
 		const { token } = selectUser(getState());
+		console.log("salesLocationIds", salesLocationIds);
+		console.log("relevantProductIds", relevantProductIds);
 		try {
 			dispatch(fetchingData());
 			const response = await axios.post(

@@ -83,30 +83,6 @@ export default function Dashboard() {
 		});
 	});
 
-	// console.log("feedbackData", feedbackData);
-	// const data = {
-	// 	labels: ["Red", "Blue", "Yellow"],
-	// 	datasets: [
-	// 		{
-	// 			label: "# of Votes",
-	// 			data: [1, 1, 4],
-	// 			backgroundColor: [
-	// 				"rgba(255, 99, 132, 0.2)",
-	// 				"rgba(54, 162, 235, 0.2)",
-	// 				"rgba(255, 206, 86, 0.2)",
-	// 				"rgba(75, 192, 192, 0.2)",
-	// 			],
-	// 			borderColor: [
-	// 				"rgba(255, 99, 132, 1)",
-	// 				"rgba(54, 162, 235, 1)",
-	// 				"rgba(255, 206, 86, 1)",
-	// 				"rgba(75, 192, 192, 1)",
-	// 			],
-	// 			borderWidth: 1,
-	// 		},
-	// 	],
-	// };
-
 	const options = {
 		scales: {
 			yAxes: [
@@ -169,7 +145,7 @@ export default function Dashboard() {
 							))}{" "}
 						</div>
 
-						<div>
+						<div id="dashboard-transpa-qr-sticker">
 							<img
 								id="dashboard-transpa-image"
 								src="https://i.ibb.co/W0Jkpv8/Transpa-Sticker.jpg"
