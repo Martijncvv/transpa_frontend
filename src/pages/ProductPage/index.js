@@ -58,7 +58,6 @@ export default function ProductPage() {
 							<h3>Company Info</h3>
 							<p>{productDetails.company.detailedCompanyInfo}</p>
 
-							<h3>Product/ Company Images</h3>
 							<div id="product-images">
 								{productDetails.productImages.map((image) => (
 									<div key={image.id} className="product-image-div">
