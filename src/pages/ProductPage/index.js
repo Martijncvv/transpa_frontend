@@ -148,7 +148,7 @@ export default function ProductPage() {
 						)}
 						<h3>Sales locations</h3>
 						{locations.map((location) => (
-							<div key={location.id}>
+							<div key={location.id} className="product-page-locations-row">
 								<a
 									className="location-link"
 									href={
@@ -156,10 +156,7 @@ export default function ProductPage() {
 									}
 									target="_blank"
 								>
-									<p>
-										{" "}
-										- {location.zipcode} {location.streetNumber}
-									</p>
+									- {location.zipcode} {location.streetNumber}
 									<img
 										className="location-maps-logo"
 										src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Google_Maps_icon_%282015-2020%29.svg/1200px-Google_Maps_icon_%282015-2020%29.svg.png"
@@ -189,13 +186,19 @@ export default function ProductPage() {
 							>
 								<img
 									className="social-media-logo"
-									src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png"
+									src="https://www.verfvanniveau.nl/wp-content/uploads/2019/08/logo-social-fb-facebook-icon.png"
 								/>
 							</a>
-							<img
-								className="social-media-logo"
-								src="https://cdn11.bigcommerce.com/s-da4bb/product_images/uploaded_images/weblogo.png"
-							/>
+							<a
+								id="social-media-link"
+								href={productDetails.socialMediaURL}
+								target="_blank"
+							>
+								<img
+									className="social-media-logo"
+									src="https://www.jaspersomsen.com/wp-spullies/uploads/2017/03/instagram-Logo-PNG-Transparent-Background-download.png"
+								/>
+							</a>
 						</div>
 					</div>
 				</div>

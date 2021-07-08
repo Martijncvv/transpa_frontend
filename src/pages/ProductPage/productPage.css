@@ -184,6 +184,20 @@
 	height: 70px;
 }
 
+.product-page-locations-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.location-link {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	width: 180px;
+}
+
 .location-maps-logo {
-	height: 70px;
+	height: 25px;
+	margin-left: 30px;
 }
