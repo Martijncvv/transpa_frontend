@@ -35,24 +35,23 @@ export default function Dashboard() {
 
 	function setQrCodeLink(productId) {
 		console.log(productId);
-		setQrLink(`http://localhost:3000/productDetails/${productId}`);
-		// setQrLink(
-		// 	`https://transpa-products.herokuapp.com/productDetails/${productId}`
-		// );
+		// setQrLink(`http://localhost:3000/productDetails/${productId}`);
+		setQrLink(
+			`https://transpa-products.herokuapp.com/productDetails/${productId}`
+		);
 	}
 
 	const feedbackData = [];
 
 	products.map((product) => {
 		product.questions?.map((questionData) => {
-			// feedbackData[questionData.id] = {
 			feedbackData.push({
 				question: questionData.question,
 				product: product.productName,
 				labels: [],
 				datasets: [
 					{
-						label: "# of Votes",
+						label: " # of Votes",
 						data: [],
 						backgroundColor: [
 							"rgba(255, 99, 132, 0.2)",
