@@ -7,6 +7,7 @@ import { popupOff } from "../store/appStates/actions";
 import "./styling/AddLocationField.css";
 
 export default function AddLocationField() {
+	const [city, setCity] = useState("");
 	const [zipcode, setZipcode] = useState("");
 	const [streetNumber, setStreetNumber] = useState("");
 	const dispatch = useDispatch();
@@ -15,11 +16,12 @@ export default function AddLocationField() {
 
 	function submitForm(event) {
 		event.preventDefault();
-		dispatch(addLocation(zipcode, streetNumber));
+		dispatch(addLocation(city, zipcode, streetNumber));
 		dispatch(popupOff());
 
-		setStreetNumber(" ");
+		setCity(" ");
 		setZipcode(" ");
+		setStreetNumber(" ");
 	}
 
 	return (
@@ -29,6 +31,9 @@ export default function AddLocationField() {
 				<div id="add-location-form">
 					<div>
 						<div>
+							<label htmlFor="city ">City</label>
+						</div>
+						<div>
 							<label htmlFor="zipcode ">Zip code</label>
 						</div>
 						<div>
@@ -37,6 +42,13 @@ export default function AddLocationField() {
 					</div>
 
 					<div>
+						<div>
+							<input
+								type="text"
+								id="city"
+								onChange={(event) => setCity(event.target.value)}
+							></input>
+						</div>
 						<div>
 							<input
 								type="text"

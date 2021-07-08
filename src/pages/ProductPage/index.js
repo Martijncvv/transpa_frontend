@@ -53,12 +53,12 @@ export default function ProductPage() {
 							<h3>{productDetails.company.companyName}</h3>
 						</div>
 						<div id="product-page-product-details">
-							<h3>Product info</h3>
+							<h3>Product Info</h3>
 							<p>{productDetails.detailedProductInfo}</p>
-							<h3>Company info</h3>
+							<h3>Company Info</h3>
 							<p>{productDetails.company.detailedCompanyInfo}</p>
 
-							<h3>Company Images</h3>
+							<h3>Product/ Company Images</h3>
 							<div id="product-images">
 								{productDetails.productImages.map((image) => (
 									<div key={image.id} className="product-image-div">
@@ -76,7 +76,7 @@ export default function ProductPage() {
 						</div>
 						{productDetails.questions.length ? (
 							<div id="product-page-feedback">
-								<h3>Product feedback</h3>
+								<h3>Product Feedback</h3>
 								<div id="product-page-questions">
 									{questionsData.map((questionData) => (
 										<div key={questionData.id}>
@@ -154,7 +154,7 @@ export default function ProductPage() {
 						<div id="product-page-company-contact">
 							<div>
 								{" "}
-								<h3>Sales locations</h3>
+								<h3>Shops</h3>
 								<div id="product-page-sales-locations">
 									{locations.map((location) => (
 										<div
@@ -169,7 +169,8 @@ export default function ProductPage() {
 												}
 												target="_blank"
 											>
-												- {location.zipcode} {location.streetNumber}
+												{location.city} {location.zipcode}{" "}
+												{location.streetNumber}
 												<img
 													className="location-maps-logo"
 													src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Google_Maps_icon_%282015-2020%29.svg/1200px-Google_Maps_icon_%282015-2020%29.svg.png"
@@ -181,7 +182,7 @@ export default function ProductPage() {
 							</div>
 							<div>
 								{" "}
-								<h3>Social media</h3>
+								<h3>Social Media</h3>
 								<div id="social-media-div">
 									<a
 										id="social-media-link"
@@ -206,7 +207,7 @@ export default function ProductPage() {
 								</div>
 							</div>
 						</div>
-						<h3>Relevant products</h3>
+						<h3>Relevant Products</h3>
 						<div id="product-page-relevant-products">
 							{productDetails.relevantProduct.map((product) => (
 								<div key={product.id} className="product-page-productCard">

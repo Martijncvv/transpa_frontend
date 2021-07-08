@@ -1,3 +1,7 @@
+h3 {
+	text-align: center;
+}
+
 #main-product-page {
 	display: flex;
 	flex-direction: column;
@@ -175,13 +179,14 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	height: 40px;
 }
 .location-link {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
-	width: 180px;
+	width: 300px;
 }
 
 .location-maps-logo {

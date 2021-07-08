@@ -274,7 +274,7 @@ export default function AddProduct() {
 							{locations.map((location) => (
 								<div key={location.id}>
 									<label className="container">
-										Zipcode: {location.zipcode} Nr: {location.streetNumber}
+										{location.city} {location.zipcode} {location.streetNumber}
 										<input
 											type="checkbox"
 											name="locationId"

@@ -100,11 +100,12 @@ export const fetchLocations = () => {
 	};
 };
 
-export const addLocation = (zipcode, streetNumber) => {
+export const addLocation = (city, zipcode, streetNumber) => {
 	return async (dispatch, getState) => {
 		try {
 			dispatch(fetchingData());
 			const response = await axios.post(`${apiUrl}/products/addLocation/`, {
+				city,
 				zipcode,
 				streetNumber,
 			});
