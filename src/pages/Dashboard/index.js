@@ -34,8 +34,6 @@ export default function Dashboard() {
 	}
 
 	function setQrCodeLink(productId) {
-		console.log(productId);
-		// setQrLink(`http://localhost:3000/productDetails/${productId}`);
 		setQrLink(
 			`https://transpa-products.herokuapp.com/productDetails/${productId}`
 		);
