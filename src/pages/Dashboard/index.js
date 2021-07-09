@@ -161,6 +161,7 @@ export default function Dashboard() {
 					</div>
 				</div>
 			)}
+			<div id="footer"></div>
 		</div>
 	);
 }

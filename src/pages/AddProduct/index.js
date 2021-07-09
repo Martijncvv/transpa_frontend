@@ -507,6 +507,7 @@ export default function AddProduct() {
 					Add product
 				</button>
 			</form>
+			<div id="footer"></div>
 		</div>
 	);
 }
