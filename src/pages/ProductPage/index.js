@@ -134,6 +134,9 @@ export default function ProductPage() {
 																(answerData) => answerData.id
 															)
 														)}
+														onTouchEnd={({ target: { value } }) => {
+															onVote(value, questionData.id);
+														}}
 														onMouseUp={({ target: { value } }) => {
 															onVote(value, questionData.id);
 														}}
