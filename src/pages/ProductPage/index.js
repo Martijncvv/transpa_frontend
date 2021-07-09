@@ -206,7 +206,9 @@ export default function ProductPage() {
 								</div>
 							</div>
 						</div>
-						<h3>Relevant Products</h3>
+						{productDetails.relevantProduct.length && (
+							<h3>Relevant Products</h3>
+						)}
 						<div id="product-page-relevant-products">
 							{productDetails.relevantProduct.map((product) => (
 								<div key={product.id} className="product-page-productCard">
