@@ -175,7 +175,7 @@ export default function Home() {
 					</div>
 				</div>
 			)}
-			<div id="footer"></div>
+			<div id="home-footer"></div>
 		</div>
 	);
 }
