@@ -3,7 +3,7 @@
 A platform where SMB's can create pages for products they sell to increase product transparency; Connecting business and customer by communicating through the product.
 
 <p align="center"> 
-  <img src="src/images/Transpa Facebook banner.jpeg" alt="Website UI top" width="800" >
+  <img src="src/images/Transpa Facebook banner.jpeg" alt="Website UI top" width="700" >
 </p>
 
 A company can generate a typical Transpa product QR code in their dashboard which they can stick on their products to let customers know they provide additional product information and that they are part of the Transpa ecosystem.
@@ -20,18 +20,28 @@ By Martijn van Veen
 [Backend repo](https://github.com/Martijncvv/transpa_backend)
 
 # Previews
+
+## Home page
 <p align="center"> 
-  <img src="src/images/Transpa-page-home.png" alt="Website home page" width="800" >
+  <img src="src/images/Transpa-page-home.png" alt="Website home page" width="700" >
 </p>
+
+## Login screen
 <p align="center"> 
-  <img src="src/images/Transpa-page-logins-screen.png" alt="Website login screen" width="800" >
+  <img src="src/images/Transpa-page-logins-screen.png" alt="Website login screen" width="700" >
 </p>
+
+## Dashboard page
 <p align="center"> 
-  <img src="src/images/Transpa-page-dashboard.png" alt="Website dashboard page" width="800" >
+  <img src="src/images/Transpa-page-dashboard.png" alt="Website dashboard page" width="700" >
 </p>
+
+## Add-product page
 <p align="center"> 
-  <img src="src/images/Transpa-page-addProduct.png" alt="Website add-product page" width="800" >
+  <img src="src/images/Transpa-page-addProduct.png" alt="Website add-product page" width="700" >
 </p>
+
+## Mobile view product page
 <p align="center"> 
-  <img src="src/images/Transpa-product-page.jpeg" alt="Website product page, mobile view" width="800" >
+  <img src="src/images/Transpa-product-page.jpeg" alt="Website product page, mobile view" width="700" >
 </p>
