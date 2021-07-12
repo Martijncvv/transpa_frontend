@@ -6,10 +6,9 @@ A platform where SMB's can create pages for products they sell to increase produ
   <img src="src/images/Transpa Facebook banner.jpeg" alt="Website UI top" width="700" >
 </p>
 
-A company can generate a typical Transpa product QR code in their dashboard which they can stick on their products to let customers know they provide additional product information and that they are part of the Transpa ecosystem.
-Thanks to the QR codes, customers can easily check additional information about the product, company and give feedback to increase product quality.
+A company can create a product page and generate a Transpa product QR code on their dashboard. Thanks to the typical design, customers know that the product is part of the Transpa ecosystem; Customers can easily check additional information about the product/company and give feedback to increase product quality.
 
-By Martijn van Veen
+By Martijn vv
 
 [Web Application](https://transpa-products.herokuapp.com/)
 
