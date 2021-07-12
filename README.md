@@ -26,7 +26,7 @@ By Martijn van Veen
   <img src="src/images/Transpa-page-home.png" alt="Website home page" width="700" >
 </p>
 
-## Login screen
+## Login pop-up
 <p align="center"> 
   <img src="src/images/Transpa-page-logins-screen.png" alt="Website login screen" width="700" >
 </p>
@@ -36,7 +36,7 @@ By Martijn van Veen
   <img src="src/images/Transpa-page-dashboard.png" alt="Website company dashboard page" width="700" >
 </p>
 
-## Add-product page
+## Company add-product page
 <p align="center"> 
   <img src="src/images/Transpa-page-addProduct.png" alt="Website add-product page" width="700" >
 </p>
