@@ -31,9 +31,9 @@ By Martijn van Veen
   <img src="src/images/Transpa-page-logins-screen.png" alt="Website login screen" width="700" >
 </p>
 
-## Dashboard page
+## Company dashboard page
 <p align="center"> 
-  <img src="src/images/Transpa-page-dashboard.png" alt="Website dashboard page" width="700" >
+  <img src="src/images/Transpa-page-dashboard.png" alt="Website company dashboard page" width="700" >
 </p>
 
 ## Add-product page
