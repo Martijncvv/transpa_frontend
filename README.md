@@ -1,4 +1,5 @@
 # Transpa Product Transparency Platform
+Final project to show knowledge learned during the full stack development course.
 
 A platform where SMB's can create pages for products they sell to increase product transparency; Connecting business and customer by communicating through the product.
 
